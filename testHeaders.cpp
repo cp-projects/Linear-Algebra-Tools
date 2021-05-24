@@ -34,5 +34,23 @@ int main(){
 
 
 
+	std::cout << '\n';
+	std::cout << '\n';
+	std::cout << '\n';
+
+
+	double result[3][3];
+
+	matrixMultiplication(input, output, result);
+
+	for(int i = 0; i < 3; i++)
+            {for(int j = 0; j < 3; j++){
+                std::cout << result[i][j]  << ' ';}
+            std::cout << '\n'; }
+
+
+
+
+
 return 0;
 }
