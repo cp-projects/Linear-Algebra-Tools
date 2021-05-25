@@ -1,6 +1,25 @@
 #include "matrix.hpp"
 #include <iostream>
 
+
+
+template<int R, int C>
+void printMatrix(double(&matrix)[R][C])
+{
+
+	 for(int i = 0; i < R; i++)
+            {for(int j = 0; j < C; j++){
+                std::cout << matrix[i][j]  << ' ';}
+            std::cout << '\n'; }
+
+	std::cout << '\n';
+        std::cout << '\n';
+        std::cout << '\n';
+}
+
+
+
+
 int main(){
 
 
@@ -12,42 +31,22 @@ int main(){
 	  
 	};
 
-	
-	  for(int i = 0; i < 3; i++)
-            {for(int j = 0; j < 4; j++){
-                std::cout << input[i][j]  << ' ';}
-            std::cout << '\n'; }
-	
+	printMatrix(input);
 
-	std::cout << '\n';
-	std::cout << '\n';
-	std::cout << '\n';
 
  	double output[4][3];	
  
-        transpose(input, output);	
-	
-	for(int i = 0; i < 4; i++)
-	    {for(int j = 0; j < 3; j++){
-	        std::cout << output[i][j]  << ' ';}
-	    std::cout << '\n'; }
+        transpose(input, output);
 
+	printMatrix(output);	
 
-
-	std::cout << '\n';
-	std::cout << '\n';
-	std::cout << '\n';
 
 
 	double result[3][3];
 
 	matrixMultiplication(input, output, result);
-
-	for(int i = 0; i < 3; i++)
-            {for(int j = 0; j < 3; j++){
-                std::cout << result[i][j]  << ' ';}
-            std::cout << '\n'; }
-
+	
+	printMatrix(output);
 
 
 
