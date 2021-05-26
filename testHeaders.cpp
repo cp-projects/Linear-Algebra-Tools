@@ -1,7 +1,7 @@
 #include "matrix.hpp"
 #include <iostream>
 
-
+/*
 
 template<int R, int C>
 void printMatrix(double(&matrix)[R][C])
@@ -17,7 +17,7 @@ void printMatrix(double(&matrix)[R][C])
         std::cout << '\n';
 }
 
-
+*/
 
 
 int main(){
@@ -47,6 +47,18 @@ int main(){
 	matrixMultiplication(input, output, result);
 	
 	printMatrix(output);
+
+
+	double test[2][2] = {
+		              {1,2},
+	                      {3,4}
+	                           };
+	
+	printMatrix(test);
+	
+	//std::cout << det2by2(test) << '\n';
+	
+	determinant(result);
 
 
 
