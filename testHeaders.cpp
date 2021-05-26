@@ -20,6 +20,8 @@ void printMatrix(double(&matrix)[R][C])
 */
 
 
+
+
 int main(){
 
 
@@ -58,7 +60,14 @@ int main(){
 	
 	//std::cout << det2by2(test) << '\n';
 	
-	determinant(result);
+	
+	double letters[3][3] = {
+                         {'a', 'b', 'c'},
+                         {'d', 'e', 'f'},
+                         {'g', 'h', 'i'}
+                                         };
+	
+	determinant(letters);
 
 
 

@@ -11,16 +11,8 @@ template<int R, int C>
 void printMatrix(double(&matrix)[R][C])
 {
 
-
-        
-
-
 	std::cout << '\n';
-        std::cout << '\n';
- 
-
-
-
+	std::cout << '\n';
 
          for(int i = 0; i < R; i++)
             {for(int j = 0; j < C; j++){
@@ -102,15 +94,7 @@ template<unsigned R, unsigned C>
 void determinant(double (&matrix)[R][C])
 {
 
-     
-     char letters[3][3] = {
-	                 {'a', 'b', 'c'},
-			 {'d', 'e', 'f'},
-		         {'g', 'h', 'i'}
-                                         };
-   
-    
-    
+  
 
     double two[2][2];
 
@@ -131,12 +115,12 @@ void determinant(double (&matrix)[R][C])
 	            
 		   
 		    if(firstFlag == true){
-			    two[i-1][0] = letters[i][j];
-			    two[i][0] = letters[i+1][j];
+			    two[i-1][0] = matrix[i][j];
+			    two[i][0] = matrix[i+1][j];
 		    } 
 
 		    else{
-			    two[i-1][twoColumn] =  letters[i][j];
+			    two[i-1][twoColumn] = matrix[i][j];
 			    firstFlag = false;
 		    }
 
@@ -161,7 +145,7 @@ void determinant(double (&matrix)[R][C])
 	    
 	}
   
-        std::cout << letters[0][v] << ' ';	
+        std::cout << (char) matrix[0][v] << ' ';	
 	printMatrix(two);
        	std::cout << '\n';
     }
