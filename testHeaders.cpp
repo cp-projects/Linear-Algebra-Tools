@@ -26,7 +26,7 @@ int main(){
 
 
 
-	double identity[5][4];
+	double identity[5][5];
 
 	generateIdentity(identity);
 
@@ -57,6 +57,23 @@ int main(){
 	matrixMultiplication(input, output, result);
 	
 	printMatrix(result);
+
+
+	double A[3][3] = {
+			    {1,2,1},
+			    {3,8,1},
+			    {0,4,1}
+				};
+
+
+        double aRowsSwapped[3][3];
+
+	swapRows(3,2, A, aRowsSwapped);
+
+        printMatrix(A);
+
+        printMatrix(aRowsSwapped);
+
 
 
 	double test[2][2] = {

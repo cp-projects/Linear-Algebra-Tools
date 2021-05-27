@@ -79,6 +79,43 @@ void transpose(double (&original)[R][C], double (&transposed)[C][R])
 }
 
 
+/*
+ * 
+ * method to swap rows of a matrix
+ *
+ *
+ * */
+template<unsigned R, unsigned C>
+void swapRows(int rowOne, int rowTwo, double (&original)[R][C], double (&swapped)[R][C])
+{
+    double tempRow1[C];
+    double tempRow2[C];
+    for(int i = 0; i < R; i++){
+        for(int j = 0; j < C; j++){
+	    if(i+1 == rowOne) tempRow1[j] = original[i][j];
+	    if(i+1 == rowTwo) tempRow2[j] = original[i][j];
+
+	    else{swapped[i][j] = original[i][j];}
+	}
+    }
+    
+
+    for(int i = 0; i < R; i++){
+        for(int j = 0; j < C; j++){
+            if(i+1 == rowOne) swapped[i][j] = tempRow2[j];
+            if(i+1 == rowTwo) swapped[i][j] = tempRow1[j];
+        }
+    }
+
+   /* 
+    for(int i = 0; i < C; i++){
+    	std::cout << "row One " << tempRow1[i] << '\n';
+	std::cout << "row Two " << tempRow2[i] << '\n';
+    }*/
+
+
+}
+
 
 /*
  *
