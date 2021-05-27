@@ -48,7 +48,7 @@ int main(){
 
 	matrixMultiplication(input, output, result);
 	
-	printMatrix(output);
+	printMatrix(result);
 
 
 	double test[2][2] = {
@@ -58,7 +58,7 @@ int main(){
 	
 	printMatrix(test);
 	
-	//std::cout << det2by2(test) << '\n';
+        std::cout << det2by2(test) << '\n';
 	
 	
 	double letters[3][3] = {
@@ -67,7 +67,19 @@ int main(){
                          {'g', 'h', 'i'}
                                          };
 	
-	determinant(letters);
+
+	double testTwo[4][4] = {
+				
+				{4,3,5,21},
+				{2,4,5,11},	
+				{13,41,2,2},
+			        {2,4,5,4}	
+				    };
+	
+
+
+
+	std::cout << determinant(result) << '\n';
 
 
 
