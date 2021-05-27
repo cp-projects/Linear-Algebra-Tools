@@ -25,6 +25,14 @@ void printMatrix(double(&matrix)[R][C])
 int main(){
 
 
+
+	double identity[5][4];
+
+	generateIdentity(identity);
+
+	printMatrix(identity);
+
+
 	double input[3][4] = {
 	
 	    {1,2,3,4},
