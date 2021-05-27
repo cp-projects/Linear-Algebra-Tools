@@ -29,7 +29,34 @@ void printMatrix(double(&matrix)[R][C])
 
 
 
+/*
+ * Method to generate the Identity Matrix
+ *
+ * */
 
+
+template<int R, int C>
+void generateIdentity(double(&identity)[R][C])
+{
+
+    for(int i = 0; i < R; i++){
+    
+        for(int j = 0; j < C; j++){
+	
+	    if(i == j) identity[i][j] = 1;
+
+	    else{
+	        
+                identity[i][j] = 0;
+	    }
+	
+	}
+    
+    
+    }
+
+
+}
 
 
 /*
