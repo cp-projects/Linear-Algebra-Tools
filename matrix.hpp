@@ -3,7 +3,11 @@
 
 
 
-
+/*
+ * Method to print a matrix
+ * 
+ *
+ * */
 
 
 #include <iostream>
@@ -12,16 +16,14 @@ void printMatrix(double(&matrix)[R][C])
 {
 
 	std::cout << '\n';
-	std::cout << '\n';
 
          for(int i = 0; i < R; i++)
             {for(int j = 0; j < C; j++){
-                std::cout << (char) matrix[i][j]  << ' ';}
+                std::cout <<  matrix[i][j]  << ' ';}
             std::cout << '\n'; }
 
         std::cout << '\n';
-        std::cout << '\n';
-        std::cout << '\n';
+        
 }
 
 
@@ -91,29 +93,41 @@ constexpr double det2by2(double matrix2x2[2][2]){
 
 
 template<unsigned R, unsigned C>
-void determinant(double (&matrix)[R][C])
+double determinant(double (&matrix)[R][C])
 {
 
-  
+    
 
+    //initializes return value
+    double finResult;
+
+    //initialize 2x2 submatrix
     double two[2][2];
 
 
+    //for some reason I was not able
+    //to get the first column of the
+    //first submatrix without this
     bool firstFlag = true;
 
+
+
+    //really inneficient
+    //basically runs through
+    //the whole matrix once per
+    //submatrix and focuses on
+    //the part we're interested in
+   
     for(int v = 0; v < 3; v++){
 
+        bool oddVflag = false;
         for(int i = 0; i < R; i++){
-
 	    
 	    bool twoColumn = 0;
             for(int j = 0; j < C; j++){
-		    
-	        
+		           
 	        if(i != 0 && j != v){
 
-	            
-		   
 		    if(firstFlag == true){
 			    two[i-1][0] = matrix[i][j];
 			    two[i][0] = matrix[i+1][j];
@@ -124,34 +138,54 @@ void determinant(double (&matrix)[R][C])
 			    firstFlag = false;
 		    }
 
-
-
 		    firstFlag = false;
 
-
-
 	         }
-
-		 
-	     
+     
 		 twoColumn = 1;
 	         
-	     }
-
-            
- 		    
+	     }		    
 	    	 
-	    std::cout << '\n';
+	    //std::cout << '\n';
 	    
 	}
   
-        std::cout << (char) matrix[0][v] << ' ';	
+/*
+        std::cout << matrix[0][v] << ' ';	
 	printMatrix(two);
        	std::cout << '\n';
+*/
+	double det = det2by2(two);
+/*
+	std::cout << det << '\n';
+	std::cout << '\n';
+	std::cout << '\n';
+*/
+
+
+	
+        if(v % 2) oddVflag = true;
+
+
+	if(oddVflag == false){
+	
+	   finResult += matrix[0][v]  *  det;
+	}
+
+	else{
+	
+	   finResult -= matrix[0][v] * det;
+	}
+
+	
+
+	//std::cout << "   oddVflag is    " << oddVflag << "    det is   " << det << '\n';
+
     }
 
-
-
+   // std::cout << finResult << '\n';
+    
+    return finResult;
 }
 
 
