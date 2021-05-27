@@ -26,7 +26,7 @@ int main(){
 
 
 
-	double identity[5][4];
+	double identity[5][5];
 
 	generateIdentity(identity);
 
@@ -58,6 +58,30 @@ int main(){
 	
 	printMatrix(result);
 
+
+	double A[3][3] = {
+			    {1,2,1},
+			    {3,8,1},
+			    {0,4,1}
+				};
+
+
+        double aRowsSwapped[3][3];
+
+	swapRows(3,2, A, aRowsSwapped);
+
+        printMatrix(A);
+
+        printMatrix(aRowsSwapped);
+
+	
+	
+	double rowVector[3];
+
+        extractColumn(1, A, rowVector);
+
+	for(int i = 0; i < 3; i++) std::cout << rowVector[i] << ' ';
+	std::cout << '\n';
 
 	double test[2][2] = {
 		              {1,2},
