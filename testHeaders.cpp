@@ -74,7 +74,14 @@ int main(){
 
         printMatrix(aRowsSwapped);
 
+	
+	
+	double rowVector[3];
 
+        extractColumn(1, A, rowVector);
+
+	for(int i = 0; i < 3; i++) std::cout << rowVector[i] << ' ';
+	std::cout << '\n';
 
 	double test[2][2] = {
 		              {1,2},

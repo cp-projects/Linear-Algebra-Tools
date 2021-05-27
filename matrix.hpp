@@ -80,6 +80,132 @@ void transpose(double (&original)[R][C], double (&transposed)[C][R])
 
 
 /*
+ * dot product
+ *
+ *
+ * */
+template<int R>
+constexpr double dot(double vectorOne[R], double vectorTwo[R]){
+
+    double dotProduct;	
+    for(int i = 0; i < R; i++){
+    
+        dotProduct += vectorOne[i]*vectorTwo[i];
+    }
+
+return dotProduct;
+}
+
+
+/*
+ * scaler
+ *
+ **/
+template<int R>
+constexpr void scale(double vector[R], double scaler){
+
+   double res[R];	
+   for(int i = 0; i < R; i++){
+       vector[i] *= scaler;
+   }
+
+}
+
+/*
+ * subtract vector
+ *
+ * */
+template<int R>
+constexpr void elim(double vectorOne[R], double vectorTwo[R]){
+
+    for(int i = 0; i < R; i++){
+    
+        vectorOne[i] -= vectorTwo[i];
+    
+    }
+
+}
+
+
+
+/*
+ *
+ * method for extracting a specific row as a vector
+ *
+ * */
+template<int R, int C>
+void extractRow(int rowIndex, double (&original)[R][C], double rowVector[C])
+{
+
+	for(int i = 0; i < R; i++){
+	    for(int j = 0; j < C; j++){
+	        if(i+1 == rowIndex) rowVector[j] = original[i][j];   
+	    }
+	}
+
+}
+
+
+
+/*
+ *
+ * method for replacing a specific row with a vector
+ *
+ * */
+template<int R, int C>
+void replaceRow(int rowIndex, double (&original)[R][C], double rowVector[C])
+{
+
+        for(int i = 0; i < R; i++){
+            for(int j = 0; j < C; j++){
+                if(i+1 == rowIndex)  original[i][j] = rowVector[j];
+            }
+        }
+
+}
+
+
+
+/*
+ *
+ * method for extracting a specific column as a vector
+ *
+ * */
+template<int R, int C>
+void extractColumn(int columnIndex, double (&original)[R][C], double columnVector[R])
+{
+
+        for(int i = 0; i < R; i++){
+            for(int j = 0; j < C; j++){
+                if(j+1 == columnIndex) columnVector[i] = original[i][j];
+            }
+        }
+
+}
+
+
+
+/*
+ *
+ * method for replacing a specific column with a vector
+ *
+ * */
+template<int R, int C>
+void replaceColumn(int columnIndex, double (&original)[R][C], double columnVector[R])
+{
+
+        for(int i = 0; i < R; i++){
+            for(int j = 0; j < C; j++){
+                if(j+1 == columnIndex) original[i][j] = columnVector[i];
+            }
+        }
+
+}
+
+
+
+
+/*
  * 
  * method to swap rows of a matrix
  *
@@ -106,14 +232,6 @@ void swapRows(int rowOne, int rowTwo, double (&original)[R][C], double (&swapped
             if(i+1 == rowTwo) swapped[i][j] = tempRow1[j];
         }
     }
-
-   /* 
-    for(int i = 0; i < C; i++){
-    	std::cout << "row One " << tempRow1[i] << '\n';
-	std::cout << "row Two " << tempRow2[i] << '\n';
-    }*/
-
-
 }
 
 
