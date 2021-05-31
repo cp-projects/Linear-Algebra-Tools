@@ -111,12 +111,9 @@ void transpose(double (&original)[R][C], double (&transposed)[C][R])
  *
  *
  * */
-//template<int R>
-double dot(double* vectorOne, double* vectorTwo){
+double dot(double* vectorOne, double* vectorTwo, int len){
 
     double dotProduct;
-    int len = sizeof(vectorOne)/sizeof(vectorTwo[1]);
-    //for(int i = 0; i < R; i++){
     for(int i = 0; i < len; i++){
     
         dotProduct += vectorOne[i]*vectorTwo[i];
@@ -130,11 +127,11 @@ return dotProduct;
  * scaler
  *
  **/
-template<int R>
-constexpr void scale(double vector[R], double scaler){
+//template<int R>
+constexpr void scale(double* vector, int len,  double scaler){
 
    //double res[R];	
-   for(int i = 0; i < R; i++){
+   for(int i = 0; i < len; i++){
        vector[i] *= scaler;
    }
 
@@ -144,10 +141,10 @@ constexpr void scale(double vector[R], double scaler){
  * subtract vector
  *
  * */
-template<int R>
-constexpr void elim(double vectorOne[R], double vectorTwo[R]){
+//template<int R>
+constexpr void elim(double* vectorOne, double* vectorTwo, int len){
 
-    for(int i = 0; i < R; i++){
+    for(int i = 0; i < len; i++){
     
         vectorOne[i] -= vectorTwo[i];
     
