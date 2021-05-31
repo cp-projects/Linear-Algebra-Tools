@@ -133,6 +133,20 @@ int main(){
 	std::cout << '\n' << '\n' << dotProduct << '\n';
 
 
+
+	scale(testVector, size, 2);
+
+	printVector(testVector);
+
+	std::cout << '\n';
+
+	elim(testVector, testVectorTwo, size);
+
+	printVector(testVector);
+
+	std::cout << '\n';
+
+
 	
 
 
