@@ -115,8 +115,6 @@ void transpose(double (&original)[R][C], double (&transposed)[C][R])
 double dot(double* vectorOne, double* vectorTwo, int len){
 
     double dotProduct;
-    //int len = sizeof(vectorOne)/sizeof(vectorTwo[1]);
-    //for(int i = 0; i < R; i++){
     for(int i = 0; i < len; i++){
     
         dotProduct += vectorOne[i]*vectorTwo[i];
