@@ -28,6 +28,33 @@ void printMatrix(double(&matrix)[R][C])
 
 
 
+/*
+ *
+ * Method to print a vector
+ *
+ *
+ *
+ * */
+template<int R>
+void printVector(double (&vector)[R])
+{
+
+
+    std::cout << '\n';
+
+    for(int i = 0; i < R; i++)
+    {
+    
+        std::cout << vector[i] << ' ';
+    
+    }
+
+
+}
+
+
+
+
 
 /*
  * Method to generate the Identity Matrix
@@ -84,11 +111,13 @@ void transpose(double (&original)[R][C], double (&transposed)[C][R])
  *
  *
  * */
-template<int R>
-constexpr double dot(double vectorOne[R], double vectorTwo[R]){
+//template<int R>
+double dot(double* vectorOne, double* vectorTwo){
 
-    double dotProduct;	
-    for(int i = 0; i < R; i++){
+    double dotProduct;
+    int len = sizeof(vectorOne)/sizeof(vectorTwo[1]);
+    //for(int i = 0; i < R; i++){
+    for(int i = 0; i < len; i++){
     
         dotProduct += vectorOne[i]*vectorTwo[i];
     }
@@ -104,7 +133,7 @@ return dotProduct;
 template<int R>
 constexpr void scale(double vector[R], double scaler){
 
-   double res[R];	
+   //double res[R];	
    for(int i = 0; i < R; i++){
        vector[i] *= scaler;
    }

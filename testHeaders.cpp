@@ -114,6 +114,23 @@ int main(){
 	std::cout << determinant(result) << '\n';
 
 
+	double testVector[4];
+	double testVectorTwo[4];
+
+        std::cout << '\n';
+	extractRow(1, testTwo, testVector);
+	
+        printVector(testVector);
+
+	extractColumn(1, testTwo, testVectorTwo);
+
+	printVector(testVectorTwo);
+
+	
+	double dotProduct = dot(testVector, testVectorTwo);
+	
+	std::cout << '\n' << '\n' << dotProduct << '\n';
+	
 
 
 return 0;
