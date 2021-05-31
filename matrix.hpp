@@ -112,10 +112,10 @@ void transpose(double (&original)[R][C], double (&transposed)[C][R])
  *
  * */
 //template<int R>
-double dot(double* vectorOne, double* vectorTwo){
+double dot(double* vectorOne, double* vectorTwo, int len){
 
     double dotProduct;
-    int len = sizeof(vectorOne)/sizeof(vectorTwo[1]);
+    //int len = sizeof(vectorOne)/sizeof(vectorTwo[1]);
     //for(int i = 0; i < R; i++){
     for(int i = 0; i < len; i++){
     

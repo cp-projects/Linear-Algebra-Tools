@@ -126,8 +126,8 @@ int main(){
 
 	printVector(testVectorTwo);
 
-	
-	double dotProduct = dot(testVector, testVectorTwo);
+        int size = sizeof(testVector)/sizeof(testVector[0]);	
+	double dotProduct = dot(testVector, testVectorTwo, size);
 	
 	std::cout << '\n' << '\n' << dotProduct << '\n';
 	
