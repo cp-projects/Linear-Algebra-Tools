@@ -142,7 +142,7 @@ constexpr void scale(double* vector, int len,  double scaler){
  *
  * */
 //template<int R, int C>
-constexpr void elim(double* vectorOne, double* vectorTwo, int len){
+constexpr void subtractVector(double* vectorOne, double* vectorTwo, int len){
 
     for(int i = 0; i < len; i++){
     

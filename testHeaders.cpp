@@ -140,7 +140,7 @@ int main(){
 
 	std::cout << '\n';
 
-	elim(testVector, testVectorTwo, size);
+	subtractVector(testVector, testVectorTwo, size);
 
 	printVector(testVector);
 
