@@ -26,7 +26,7 @@ int main(){
 
 
 
-	double identity[5][5];
+	double identity[4][4];
 
 	generateIdentity(identity);
 
@@ -146,6 +146,12 @@ int main(){
 
 	std::cout << '\n';
 
+	double transform[4];
+	matrixVectorMultiplication(identity, testVectorTwo, transform);
+
+	printVector(transform);
+
+        std::cout << '\n';
 
 	
 
