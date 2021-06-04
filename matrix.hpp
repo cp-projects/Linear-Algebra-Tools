@@ -324,7 +324,15 @@ void gauss(double (&input)[R][C], double (&output)[R][C])
 int rowPivot = 1;
 int columnPivot = 1;
 
-while(rowPivot <= R && columnPivot <= )
+while(rowPivot <= R && columnPivot <= C)
+    {
+	std::cout << rowPivot << ' ';
+	std::cout << columnPivot << ' ';
+	rowPivot++;
+	columnPivot++;
+
+	std::cout << '\n';
+    }
 
 
 
