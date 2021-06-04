@@ -27,7 +27,6 @@ void printMatrix(double(&matrix)[R][C])
 }
 
 
-
 /*
  *
  * Method to print a vector

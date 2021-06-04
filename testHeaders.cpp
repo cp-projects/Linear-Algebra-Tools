@@ -1,6 +1,7 @@
 #include "matrix.hpp"
-#include <iostream>
 #include "myArithmetic.hpp"
+#include <iostream>
+
 
 /*
 
@@ -24,6 +25,12 @@ void printMatrix(double(&matrix)[R][C])
 
 
 int main(){
+
+	
+
+       test();
+	
+
 
 
 	double identity[4][4];
