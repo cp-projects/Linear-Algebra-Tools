@@ -153,7 +153,9 @@ int main(){
 
         std::cout << '\n';
 
-	
+        double gaussOutput[4][4];
+
+	gauss(testTwo, gaussOutput);	
 
 
 return 0;

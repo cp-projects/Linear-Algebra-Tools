@@ -310,7 +310,37 @@ void matrixVectorMultiplication(double (&matrix)[M][N], double ($vector)[N], dou
 
 }
 
+/*
+ *
+ * Gaussian Elimination
+ *
+ *
+ *
+ * */
+template<int R, int C>
+void gauss(double (&input)[R][C], double (&output)[R][C])
+{
 
+int rowPivot = 1;
+int columnPivot = 1;
+
+double maxAbsolute;
+
+while(rowPivot <= R && columnPivot <= C)
+    {
+     
+        
+
+
+	    
+
+	rowPivot++;
+	columnPivot++;;
+    }
+
+
+
+}
 
 
 /*
