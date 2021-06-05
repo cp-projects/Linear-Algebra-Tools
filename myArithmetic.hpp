@@ -11,7 +11,7 @@ void test()
 std::cout << "Hello World" << '\n';
 
 
-}
+};
 
 
 
