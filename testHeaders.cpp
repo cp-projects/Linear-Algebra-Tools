@@ -28,7 +28,7 @@ int main(){
 
 	
 
-       test();
+	myArithmetic::test();
 	
 
 
