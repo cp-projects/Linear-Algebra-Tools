@@ -1,6 +1,6 @@
 #include "matrix.hpp"
-#include "myArithmetic.hpp"
-#include <iostream>
+
+//#include <iostream>
 
 
 /*
@@ -27,10 +27,6 @@ void printMatrix(double(&matrix)[R][C])
 int main(){
 
 	
-
-	myArithmetic::test();
-	
-
 
 
 	double identity[4][4];
@@ -87,8 +83,8 @@ int main(){
 
         extractColumn(1, A, rowVector);
 
-	for(int i = 0; i < 3; i++) std::cout << rowVector[i] << ' ';
-	std::cout << '\n';
+	//for(int i = 0; i < 3; i++) std::cout << rowVector[i] << ' ';
+	//std::cout << '\n';
 
 	double test[2][2] = {
 		              {1,2},
@@ -97,7 +93,7 @@ int main(){
 	
 	printMatrix(test);
 	
-        std::cout << det2by2(test) << '\n';
+        //std::cout << det2by2(test) << '\n';
 	
 	
 	double letters[3][3] = {
@@ -118,13 +114,13 @@ int main(){
 
 
 
-	std::cout << determinant(result) << '\n';
+	//std::cout << determinant(result) << '\n';
 
 
 	double testVector[4];
 	double testVectorTwo[4];
 
-        std::cout << '\n';
+        //std::cout << '\n';
 	extractRow(1, testTwo, testVector);
 	
         printVector(testVector);
@@ -137,7 +133,7 @@ int main(){
 	int size = sizeof(testVector)/sizeof(testVector[0]);	
 	double dotProduct = dot(testVector, testVectorTwo, size);
 	
-	std::cout << '\n' << '\n' << dotProduct << '\n';
+	//std::cout << '\n' << '\n' << dotProduct << '\n';
 
 
 
@@ -145,25 +141,27 @@ int main(){
 
 	printVector(testVector);
 
-	std::cout << '\n';
+	//std::cout << '\n';
 
 	subtractVector(testVector, testVectorTwo, size);
 
 	printVector(testVector);
 
-	std::cout << '\n';
+	//std::cout << '\n';
 
 	double transform[4];
 	matrixVectorMultiplication(identity, testVectorTwo, transform);
 
 	printVector(transform);
 
-        std::cout << '\n';
+        //std::cout << '\n';
 
         double gaussOutput[4][4];
 
 	gauss(testTwo, gaussOutput);	
 
+	
+	GoingToTrySomethingNew();
 
 return 0;
 }

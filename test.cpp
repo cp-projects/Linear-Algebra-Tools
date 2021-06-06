@@ -4,7 +4,7 @@
 int main()
 {
 
-    test();
+    GoingToTrySomethingNew();
 
     return 0;
 
