@@ -1,7 +1,5 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
-
-//#include <iostream>
+#ifndef myArithmetic_H_
+#define myAtithmetic_H_
 
 
 

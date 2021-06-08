@@ -161,7 +161,7 @@ int main(){
 	gauss(testTwo, gaussOutput);	
 
 	
-        //myArithmetic::cP();
+       	std::cout << '\n' << '\n' << cP() << '\n';
 
 return 0;
 }
