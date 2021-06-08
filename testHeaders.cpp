@@ -120,11 +120,13 @@ int main(){
 	double testVector[4];
 	double testVectorTwo[4];
 
-        //std::cout << '\n';
+        std::cout << '\n';
 	extractRow(1, testTwo, testVector);
 	
         printVector(testVector);
 
+	
+	std::cout << '\n';
 	extractColumn(1, testTwo, testVectorTwo);
 
 	printVector(testVectorTwo);
@@ -135,26 +137,28 @@ int main(){
 	
 	//std::cout << '\n' << '\n' << dotProduct << '\n';
 
-
+	std::cout << '\n';
 
 	scale(testVector, size, 2);
 
 	printVector(testVector);
 
-	//std::cout << '\n';
+	std::cout << '\n';
 
 	subtractVector(testVector, testVectorTwo, size);
 
 	printVector(testVector);
 
-	//std::cout << '\n';
+	std::cout << '\n' << '\n';
 
 	double transform[4];
 	matrixVectorMultiplication(identity, testVectorTwo, transform);
 
-	printVector(transform);
+        printVector(transform);
 
-        //std::cout << '\n';
+        std::cout << '\n' << '\n' << '\n';
+	
+	printMatrix(testTwo);
 
         double gaussOutput[4][4];
 
