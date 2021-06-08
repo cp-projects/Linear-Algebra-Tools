@@ -5,7 +5,7 @@
 
 int absolute(int x);
 
-
+double absolue(double x);
 
 
 

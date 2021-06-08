@@ -326,7 +326,7 @@ int columnPivot = 1;
 double maxAbsolute;
 
 
-std::cout << '\n' << '\n' << absolute(27);
+std::cout << '\n' << '\n' << absolute(-27);
 
 while(rowPivot <= R && columnPivot <= C)
     {

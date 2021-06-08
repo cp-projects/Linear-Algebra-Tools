@@ -7,8 +7,6 @@ int absolute(int x)
 {
 
 
-
-
     if(!(x & (1 << 31)))    
         return x;
 
@@ -18,17 +16,16 @@ int absolute(int x)
         return ~x+1;
     }
 
-
 }
     
 
-/*
-int main()
+
+double absolute(double x)
 {
 
-cP();
 
 
-return 0;
+
+return x;
 }
-*/
+
