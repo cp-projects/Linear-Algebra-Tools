@@ -3,7 +3,7 @@
 
 
 
-int cP();
+int absolute(int x);
 
 
 

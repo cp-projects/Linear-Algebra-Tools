@@ -1,16 +1,26 @@
-//#include <iostream>
+#include <iostream>
 
 #include "myArithmetic.hpp"
 
 
-int cP()
+int absolute(int x)
 {
 
-//std::cout << "Hello World" << '\n';
 
-return 21;
+
+
+    if(!(x & (1 << 31)))    
+        return x;
+
+
+    else{
+    
+        return ~x+1;
+    }
+
+
 }
-
+    
 
 /*
 int main()

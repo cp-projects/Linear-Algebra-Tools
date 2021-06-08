@@ -161,7 +161,7 @@ int main(){
 	gauss(testTwo, gaussOutput);	
 
 	
-       	std::cout << '\n' << '\n' << cP() << '\n';
+       	std::cout << '\n' << '\n' << absolute(-5) << '\n';
 
 return 0;
 }
