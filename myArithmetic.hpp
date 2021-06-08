@@ -3,9 +3,9 @@
 
 
 
-int absolute(int x);
+int absoluteInt(int x);
 
-double absolue(double x);
+double absoluteDouble(double x);
 
 
 
