@@ -1,19 +1,11 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
-
-#include <iostream>
+#ifndef myArithmetic_H_
+#define myAtithmetic_H_
 
 
 
-int GoingToTrySomethingNew()
-{
+int absolute(int x);
 
-std::cout << "Hello World" << '\n';
-
-return 0;
-}
-
-
+double absolue(double x);
 
 
 

@@ -1,7 +1,7 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
 
-
+#include "myArithmetic.hpp"
 
 /*
  * Method to print a matrix
@@ -324,6 +324,9 @@ int rowPivot = 1;
 int columnPivot = 1;
 
 double maxAbsolute;
+
+
+std::cout << '\n' << '\n' << absolute(-27);
 
 while(rowPivot <= R && columnPivot <= C)
     {

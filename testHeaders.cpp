@@ -1,6 +1,6 @@
 #include "matrix.hpp"
-
-//#include <iostream>
+#include "myArithmetic.hpp"
+//#include "matrix.hpp"
 
 
 /*
@@ -161,7 +161,7 @@ int main(){
 	gauss(testTwo, gaussOutput);	
 
 	
-	GoingToTrySomethingNew();
+       	std::cout << '\n' << '\n' << absolute(-7.5) <<'\n';
 
 return 0;
 }
