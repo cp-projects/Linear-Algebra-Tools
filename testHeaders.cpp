@@ -1,5 +1,5 @@
 #include "matrix.hpp"
-//#include "myArithmetic.hpp"
+#include "myArithmetic.hpp"
 //#include "matrix.hpp"
 
 
@@ -161,7 +161,7 @@ int main(){
 	gauss(testTwo, gaussOutput);	
 
 	
-	//cP();
+        //myArithmetic::cP();
 
 return 0;
 }

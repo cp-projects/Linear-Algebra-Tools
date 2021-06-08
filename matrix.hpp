@@ -316,9 +316,6 @@ void matrixVectorMultiplication(double (&matrix)[M][N], double ($vector)[N], dou
  *
  *
  * */
-
-//int myArithmetic::cP();
-
 template<int R, int C>
 void gauss(double (&input)[R][C], double (&output)[R][C])
 {
