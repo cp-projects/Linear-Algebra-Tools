@@ -1,6 +1,5 @@
 #include "matrix.hpp"
 #include "myArithmetic.hpp"
-//#include "matrix.hpp"
 
 
 /*
@@ -166,6 +165,12 @@ int main(){
 
 	
        	std::cout << '\n' << '\n' << absoluteDouble(-7.5) <<'\n';
+
+
+	double crossResVector[4];
+	std::cout << '\n';
+
+	cross(testVector, testVectorTwo, crossResVector);
 
 return 0;
 }

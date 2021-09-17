@@ -421,21 +421,11 @@ double determinant(double (&matrix)[R][C])
 	         
 	     }		    
 	    	 
-	    //std::cout << '\n';
 	    
 	}
   
-/*
-        std::cout << matrix[0][v] << ' ';	
-	printMatrix(two);
-       	std::cout << '\n';
-*/
+
 	double det = det2by2(two);
-/*
-	std::cout << det << '\n';
-	std::cout << '\n';
-	std::cout << '\n';
-*/
 
 
 	
@@ -452,18 +442,46 @@ double determinant(double (&matrix)[R][C])
 	   finResult -= matrix[0][v] * det;
 	}
 
-	
-
-	//std::cout << "   oddVflag is    " << oddVflag << "    det is   " << det << '\n';
-
     }
 
-   // std::cout << finResult << '\n';
+   
     
     return finResult;
 }
 
 
+/*
+ * 
+ *
+ * Implamentation of the Cross Product
+ *
+ *
+ * */
+
+
+template <int len>
+void cross( double (&vectorOne)[len], double (&vectorTwo)[len], double (&output)[len]){
+
+        std::cout << "vector one is ";
+	printVector(vectorOne);
+	std::cout << '\n';
+
+	std::cout << "vector two is ";
+	printVector(vectorTwo);
+	std::cout << '\n';
+
+	for(int i = 0; i < len; i++){
+
+	    output[i] = absoluteDouble(vectorOne[absoluteInt(i - len)]) + vectorTwo[i]; 
+	
+	};
+
+
+	std::cout << "output vector is "; 
+	printVector(output);
+	std::cout << '\n';
+
+}
 
 
 #endif
