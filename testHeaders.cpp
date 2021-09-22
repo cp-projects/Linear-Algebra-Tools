@@ -167,10 +167,17 @@ int main(){
        	std::cout << '\n' << '\n' << absoluteDouble(-7.5) <<'\n';
 
 
-	double crossResVector[4];
+	double crossResVector[3];
 	std::cout << '\n';
 
-	cross(testVector, testVectorTwo, crossResVector);
+
+        double crossVecOne[3] = {5,3,2};
+        double crossVecTwo[3] = {-4,-1,1};
+
+	cross(crossVecOne, crossVecTwo, crossResVector);
+
+	printVector(crossResVector);
 
 return 0;
+
 }

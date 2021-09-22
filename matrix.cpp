@@ -1,7 +1,5 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
-
 #include "myArithmetic.hpp"
+#include "Matrix.hpp"
 
 /*
  * Method to print a matrix
@@ -558,4 +556,11 @@ void cross( double (&vectorOne)[len], double (&vectorTwo)[len], double (&output)
 }
 
 
-#endif
+int main(){
+
+return 0;
+}
+
+
+
+
