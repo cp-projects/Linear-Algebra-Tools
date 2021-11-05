@@ -62,7 +62,7 @@ void printVector(double (&vector)[R])
 template<int R, int C>
 void generateIdentity(double(&identity)[R][C])
 {
-
+    
     for(int i = 0; i < R; i++){
     
         for(int j = 0; j < C; j++){

@@ -178,6 +178,7 @@ int main(){
 
 	printVector(crossResVector);
 
+
 return 0;
 
 }

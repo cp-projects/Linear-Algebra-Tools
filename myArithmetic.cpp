@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "myArithmetic.hpp"
 
 
@@ -23,6 +21,7 @@ int absoluteInt(int x)
 double absoluteDouble(double x)
 {
 
+    
     if(x < 0)
 	return -x;
 
