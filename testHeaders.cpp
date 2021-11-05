@@ -171,8 +171,8 @@ int main(){
 	std::cout << '\n';
 
 
-        double crossVecOne[3] = {5,3,2};
-        double crossVecTwo[3] = {-4,-1,1};
+        double crossVecOne[3] = {-2,5,4};
+        double crossVecTwo[3] = {2,-3,-9};
 
 	cross(crossVecOne, crossVecTwo, crossResVector);
 
