@@ -2,7 +2,6 @@
 #define myAtithmetic_H_
 
 
-
 int absoluteInt(int x);
 
 double absoluteDouble(double x);
