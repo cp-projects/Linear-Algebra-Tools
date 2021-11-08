@@ -1,7 +1,13 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
 
+
+#include <iostream>
 #include "myArithmetic.hpp"
+#include "matrixErrors.hpp"
+
+
+
 
 /*
  * Method to print a matrix
@@ -9,8 +15,6 @@
  *
  * */
 
-
-#include <iostream>
 template<int R, int C>
 void printMatrix(double(&matrix)[R][C])
 {
@@ -94,6 +98,8 @@ template<int R, int C>
 void pascalsRightIdentity(double(&identity)[R][C])
 {
 
+    if(R != C) throw mustBeSquare();
+
     for(int i = 0; i < R; i++){
 
         for(int j = 0; j < C; j++){
@@ -123,6 +129,8 @@ void pascalsRightIdentity(double(&identity)[R][C])
 template<int R, int C>
 void pascalsLeftIdentity(double(&identity)[R][C])
 {
+
+    if(R!=C) throw mustBeSquare();
 
     for(int i = 0; i < R; i++){
 
@@ -546,7 +554,7 @@ template <int len>
 void cross( double (&vectorOne)[len], double (&vectorTwo)[len], double (&output)[len]){
 
 
-	//if(len != 3)
+	if(len != 3) throw notR3();
 
 
 	/*
