@@ -50,6 +50,13 @@ int main(){
         printMatrix(pascalsLeft);
 
 
+	double pascal[7][13];
+
+	generatePascalsIdentity(pascal);
+
+	printMatrix(pascal);
+
+
 
 	double input[3][4] = {
 	

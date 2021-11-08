@@ -57,6 +57,10 @@ void printVector(double (&vector)[R])
 
 
 
+
+
+
+
 /*
  * Method to generate the Identity Matrix
  *
@@ -66,7 +70,9 @@ void printVector(double (&vector)[R])
 template<int R, int C>
 void generateIdentity(double(&identity)[R][C])
 {
-    
+   
+    if(R != C) throw mustBeSquare();
+
     for(int i = 0; i < R; i++){
     
         for(int j = 0; j < C; j++){
@@ -152,6 +158,39 @@ void pascalsLeftIdentity(double(&identity)[R][C])
 }
 
 
+
+/*
+ *
+ * Method To Generate Entire Pascal's Itentity
+ *  
+ *
+ * */
+
+
+template<int R, int C>
+void generatePascalsIdentity(double(&identity)[R][C])
+{
+
+    if(C != (2*R)-1) throw wrongDimentions();
+	
+    for(int i = 0; i < R; i++){
+
+        for(int j = 0; j < C; j++){
+        
+            if(j <= R && ((i + j == R-1)) || (i+j > (R-1) && j < i+R && (i+j)%2 == 0)) identity[i][j] = 1;
+
+            else{
+
+                identity[i][j] = 0;
+            }
+
+        }
+
+
+    }
+
+
+}
 
 
 

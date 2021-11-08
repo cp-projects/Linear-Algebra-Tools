@@ -17,7 +17,10 @@ using namespace std;
 
 
 
-//struct defining custom exceptions
+//custom exeption for an attempt to
+//call a method which will give
+//misleading results for non-square
+//matricies
 struct mustBeSquare : public exception
 {
 
@@ -30,6 +33,16 @@ struct mustBeSquare : public exception
 
 
 
+
+struct wrongDimentions : public exception
+{
+
+   const char* what() const throw(){
+
+       return "This Method Should Not be Used with Those Dimentions!!!!!!!  (if Pascal try C = 2*R -1)";
+   }
+
+};
 
 
 
