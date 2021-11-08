@@ -35,6 +35,22 @@ int main(){
 	printMatrix(identity);
 
 
+	double pascalsRight[7][7];
+	
+	pascalsRightIdentity(pascalsRight);
+
+	printMatrix(pascalsRight);
+
+
+	
+	double pascalsLeft[7][7];
+
+        pascalsLeftIdentity(pascalsLeft);
+
+        printMatrix(pascalsLeft);
+
+
+
 	double input[3][4] = {
 	
 	    {1,2,3,4},

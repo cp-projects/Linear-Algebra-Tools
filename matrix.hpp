@@ -83,6 +83,72 @@ void generateIdentity(double(&identity)[R][C])
 }
 
 
+
+/*
+ * Method to generate Pascal's Right Identiy, or the identity matrix for the right side of Pascal's Triangle 
+ *
+ * */
+
+
+template<int R, int C>
+void pascalsRightIdentity(double(&identity)[R][C])
+{
+
+    for(int i = 0; i < R; i++){
+
+        for(int j = 0; j < C; j++){
+
+            if(i == j || (i%2 == j%2 && i>j)) identity[i][j] = 1;
+
+            else{
+
+                identity[i][j] = 0;
+            }
+
+        }
+
+
+    }
+
+
+}
+
+
+
+/*
+ * Method to generate Pascal's Left Identiy, or the identity matrix for the left side of Pascal's Triangle 
+ *
+ * */
+
+template<int R, int C>
+void pascalsLeftIdentity(double(&identity)[R][C])
+{
+
+    for(int i = 0; i < R; i++){
+
+        for(int j = 0; j < C; j++){
+
+            if((i + j == R-1 && j+i == C-1) || (i+j < R+C && i+j > C-1 && (i+j)%2 == 0)) identity[i][j] = 1;
+
+            else{
+
+                identity[i][j] = 0;
+            }
+
+        }
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
 /*
  *
  * Implamentation of a transpose method for a matrix of undefined size
