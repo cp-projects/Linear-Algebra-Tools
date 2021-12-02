@@ -456,13 +456,11 @@ while(rowPivot < R && columnPivot < C)
 
 	rowPivot++;
 	columnPivot++;
-	
-//	std::cout << '\n';
     }
 
-
-
 }
+
+
 
 
 /*
@@ -570,23 +568,6 @@ double determinant(double (&matrix)[R][C])
  * */
 
 
-/*
-
-//custom exception for attempts to take
-//a cross product in any other dimention
-//space than R3
-struct notR3 : public exception
-{
-
-   const char* what() const throw(){
-
-       return "You cannot take a cross product which of vectors which are not 3 dimentional";
-   }
-
-};
-
-*/
-
 
 
 template <int len>
@@ -596,19 +577,7 @@ void cross( double (&vectorOne)[len], double (&vectorTwo)[len], double (&output)
 	if(len != 3) throw notR3();
 
 
-	/*
-
-	std::cout << "vector one is ";
-	printVector(vectorOne);
-	std::cout << '\n';
-
-	std::cout << "vector two is ";
-	printVector(vectorTwo);
-	std::cout << '\n';
-
-	*/
-
-         
+ 
         double matrix[2][2] = {{1,1},{1,1}};
 	for(int i = 0; i < len; i++){
 
@@ -660,13 +629,7 @@ void cross( double (&vectorOne)[len], double (&vectorTwo)[len], double (&output)
 	};
 
 
-	/*
 	
-	std::cout << "output vector is "; 
-	printVector(output);
-	std::cout << '\n';
-
-	*/
 
 }
 
