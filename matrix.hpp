@@ -58,9 +58,6 @@ void printVector(double (&vector)[R])
 
 
 
-
-
-
 /*
  * Method to generate the Identity Matrix
  *
@@ -79,17 +76,7 @@ void generateIdentity(double(&identity)[R][C])
 	
 	    if(i == j) identity[i][j] = 1;
 
-	    else{
-	        
-                identity[i][j] = 0;
-	    }
-	
-	}
-    
-    
-    }
-
-
+	    else{ identity[i][j] = 0;}  }   }
 }
 
 
@@ -112,19 +99,8 @@ void pascalsRightIdentity(double(&identity)[R][C])
 
             if(i == j || (i%2 == j%2 && i>j)) identity[i][j] = 1;
 
-            else{
-
-                identity[i][j] = 0;
-            }
-
-        }
-
-
-    }
-
-
+            else{identity[i][j] = 0;}   }   }
 }
-
 
 
 /*
@@ -144,17 +120,7 @@ void pascalsLeftIdentity(double(&identity)[R][C])
 
             if((i + j == R-1 && j+i == C-1) || (i+j < R+C && i+j > C-1 && (i+j)%2 == 0)) identity[i][j] = 1;
 
-            else{
-
-                identity[i][j] = 0;
-            }
-
-        }
-
-
-    }
-
-
+            else{identity[i][j] = 0;}  }  }
 }
 
 
@@ -168,8 +134,7 @@ void pascalsLeftIdentity(double(&identity)[R][C])
 
 
 template<int R, int C>
-void generatePascalsIdentity(double(&identity)[R][C])
-{
+void generatePascalsIdentity(double(&identity)[R][C]){
 
     if(C != (2*R)-1) throw wrongDimentions();
 	
@@ -181,20 +146,8 @@ void generatePascalsIdentity(double(&identity)[R][C])
 
             else{
 
-                identity[i][j] = 0;
-            }
-
-        }
-
-
-    }
-
-
-}
-
-
-
-
+                identity[i][j] = 0;}
+	                                  }}}
 
 /*
  *
@@ -221,6 +174,7 @@ void transpose(double (&original)[R][C], double (&transposed)[C][R])
  *
  *
  * */
+//maybe constexpr?
 double dot(double* vectorOne, double* vectorTwo, int len){
 
     double dotProduct;
@@ -237,7 +191,7 @@ return dotProduct;
  * scaler
  *
  **/
-//template<int R>
+//run tests to see if this is actually evaluated at compile time
 constexpr void scale(double* vector, int len,  double scaler){
 
    //double res[R];	
@@ -251,7 +205,7 @@ constexpr void scale(double* vector, int len,  double scaler){
  * subtract vector
  *
  * */
-//template<int R, int C>
+//run tests to see if this is actually evaluated at compile time
 constexpr void subtractVector(double* vectorOne, double* vectorTwo, int len){
 
     for(int i = 0; i < len; i++){
@@ -410,14 +364,11 @@ void matrixVectorMultiplication(double (&matrix)[M][N], double ($vector)[N], dou
         double product = 0;
         for(int j = 0; j < N; j++){
            
-                product += matrix[i][j] * $vector[i];
-
-              
+                product += matrix[i][j] * $vector[i]; 
             }
                            
         $result[i] = product;
     }
-
 }
 
 /*
@@ -620,16 +571,9 @@ void cross( double (&vectorOne)[len], double (&vectorTwo)[len], double (&output)
 
 			output[2] = det2by2(matrix);
 			
-			break;
-		    
-	    
-	    }
- 
-	
+			break;  		}
+
 	};
-
-
-	
 
 }
 
