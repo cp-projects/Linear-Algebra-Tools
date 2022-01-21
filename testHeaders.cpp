@@ -202,6 +202,35 @@ int main(){
 
 	printVector(crossResVector);
 
+	std::cout << "This is the Invert Method\n";
+
+	double invertOutput[2][2];
+
+	double myHomeWork[2][2] = {
+		                    {27, 94},
+	                            {80, 280}
+              					};
+
+	//std::cout << "This is the input to invert\n";
+
+	//printMatrix(myHomeWork);
+	
+	invert(myHomeWork, invertOutput);
+
+       // std::cout << "This is ivert Output\n";
+
+	//printMatrix(invertOutput);
+
+	double appliedTransform[2];
+	double transformInput[2];
+        transformInput[0] = 148;
+	transformInput[1] = 440;
+	applyInvert(myHomeWork, transformInput, appliedTransform);
+
+	//printVector(appliedTransform);
+
+
+
 
 return 0;
 
