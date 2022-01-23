@@ -67,6 +67,7 @@ int main(){
 	  
 	};
 
+	std::cout << "This is Input\n";	
 	printMatrix(input);
 
 
@@ -74,6 +75,7 @@ int main(){
  
         transpose(input, output);
 
+	std::cout << "This is Output\n";
 	printMatrix(output);	
 
 
@@ -81,7 +83,9 @@ int main(){
 	double result[3][3];
 
 	matrixMultiplication(input, output, result);
-	
+
+
+	std::cout << "This is the Matrix Multiplication of intput * output\n";
 	printMatrix(result);
 
 
@@ -207,8 +211,8 @@ int main(){
 	double invertOutput[2][2];
 
 	double myHomeWork[2][2] = {
-		                    {27, 94},
-	                            {80, 280}
+		                    {3, 1},
+	                            {-4, 6}
               					};
 
 	//std::cout << "This is the input to invert\n";
@@ -219,7 +223,7 @@ int main(){
 
        // std::cout << "This is ivert Output\n";
 
-	//printMatrix(invertOutput);
+	printMatrix(invertOutput);
 
 	double appliedTransform[2];
 	double transformInput[2];
