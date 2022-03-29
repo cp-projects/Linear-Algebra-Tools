@@ -2,9 +2,11 @@
 #define myAtithmetic_H_
 
 
-int absoluteInt(int x);
+int absolute(int x);
 
-double absoluteDouble(double x);
+double absolute(double x);
+
+float absolute(float x);
 
 
 

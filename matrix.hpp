@@ -421,10 +421,10 @@ while(rowPivot < R && columnPivot < C)
      
         
 
-	std::cout << absoluteDouble(input[rowPivot][columnPivot]) << ' ';
+	std::cout << absolute(input[rowPivot][columnPivot]) << ' ';
 	
 	
-	if(absoluteDouble(input[rowPivot][columnPivot]) > maxAbsolute)
+	if(absolute(input[rowPivot][columnPivot]) > maxAbsolute)
 	    
 	    maxAbsolute = input[rowPivot][columnPivot];
 	    std::cout << " MAX VALUE = " << maxAbsolute << '\n';
@@ -660,7 +660,7 @@ void applyInvert(double (&inputMatrix)[R][C], double (&inputVector)[C], double (
 
     std::cout << "Result of Trasform is\n";
 
-     printVector(result);
+    printVector(result);
 
 }
 

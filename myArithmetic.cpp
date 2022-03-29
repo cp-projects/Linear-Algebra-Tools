@@ -1,7 +1,7 @@
 #include "myArithmetic.hpp"
 
 
-int absoluteInt(int x)
+int absolute(int x)
 {
 
 
@@ -18,12 +18,24 @@ int absoluteInt(int x)
     
 
 
-double absoluteDouble(double x)
+double absolute(double x)
 {
 
     
     if(x < 0)
 	return -x;
+
+
+return x;
+}
+
+
+float absolute(float x)
+{
+
+
+    if(x < 0)
+        return -x;
 
 
 return x;
