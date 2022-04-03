@@ -3,27 +3,6 @@
 
 
 
-/*
-
-template<int R, int C>
-void printMatrix(double(&matrix)[R][C])
-{
-
-	 for(int i = 0; i < R; i++)
-            {for(int j = 0; j < C; j++){
-                std::cout << matrix[i][j]  << ' ';}
-            std::cout << '\n'; }
-
-	std::cout << '\n';
-        std::cout << '\n';
-        std::cout << '\n';
-}
-
-*/
-
-
-
-
 int main(){
 
 	
@@ -34,29 +13,6 @@ int main(){
 	generateIdentity(identity);
 
 	printMatrix(identity);
-
-
-	double pascalsRight[7][7];
-	
-	pascalsRightIdentity(pascalsRight);
-
-	printMatrix(pascalsRight);
-
-
-	
-	double pascalsLeft[7][7];
-
-        pascalsLeftIdentity(pascalsLeft);
-
-        printMatrix(pascalsLeft);
-
-
-	double pascal[7][13];
-
-	generatePascalsIdentity(pascal);
-
-	printMatrix(pascal);
-
 
 
 	double input[3][4] = {
@@ -75,7 +31,7 @@ int main(){
  
         transpose(input, output);
 
-	std::cout << "This is Output\n";
+	std::cout << "This is Output (the output of input transposed)\n";
 	printMatrix(output);	
 
 

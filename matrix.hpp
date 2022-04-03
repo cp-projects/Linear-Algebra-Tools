@@ -80,75 +80,6 @@ void generateIdentity(double(&identity)[R][C])
 }
 
 
-
-/*
- * Method to generate Pascal's Right Identiy, or the identity matrix for the right side of Pascal's Triangle 
- *
- * */
-
-
-template<int R, int C>
-void pascalsRightIdentity(double(&identity)[R][C])
-{
-
-    if(R != C) throw mustBeSquare();
-
-    for(int i = 0; i < R; i++){
-
-        for(int j = 0; j < C; j++){
-
-            if(i == j || (i%2 == j%2 && i>j)) identity[i][j] = 1;
-
-            else{identity[i][j] = 0;}   }   }
-}
-
-
-/*
- * Method to generate Pascal's Left Identiy, or the identity matrix for the left side of Pascal's Triangle 
- *
- * */
-
-template<int R, int C>
-void pascalsLeftIdentity(double(&identity)[R][C])
-{
-
-    if(R!=C) throw mustBeSquare();
-
-    for(int i = 0; i < R; i++){
-
-        for(int j = 0; j < C; j++){
-
-            if((i + j == R-1 && j+i == C-1) || (i+j < R+C && i+j > C-1 && (i+j)%2 == 0)) identity[i][j] = 1;
-
-            else{identity[i][j] = 0;}  }  }
-}
-
-
-
-/*
- *
- * Method To Generate Entire Pascal's Itentity
- *  
- *
- * */
-
-
-template<int R, int C>
-void generatePascalsIdentity(double(&identity)[R][C]){
-
-    if(C != (2*R)-1) throw wrongDimentions();
-	
-    for(int i = 0; i < R; i++){
-
-        for(int j = 0; j < C; j++){
-        
-            if(j <= R && ((i + j == R-1)) || (i+j > (R-1) && j < i+R && (i+j)%2 == 0)) identity[i][j] = 1;
-
-            else{
-
-                identity[i][j] = 0;}
-	                                  }}}
-
 /*
  *
  * Implamentation of a transpose method for a matrix of undefined size
@@ -350,15 +281,15 @@ template<int M, int N, int P>
 void matrixMultiplication(double (&matrixOne)[M][N], double (&matrixTwo)[N][P], double (&result)[M][P])
 {
 
-    double product;
-    for(int i = 0; i < M; i++){
-	    for(int j = 0; j < P; j++){
-		for(int v = 0; v < N; v++)    
-	            product += matrixOne[i][v] * matrixTwo[v][j];
+
+    for(int i = 0; i < M; i++)
+        for(int j = 0; j < P; j++)
+	    for(int v = 0; v < N; v++)    
+	        result[i][j] += matrixOne[i][v] * matrixTwo[v][j];
 		
-	     result[i][j] = product;
-        }                 
-    }
+	    
+                         
+    
 }
 
 /*
