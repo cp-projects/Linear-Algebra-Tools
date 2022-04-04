@@ -1,7 +1,11 @@
-#include "matrix.hpp"
+#include <iostream>
+#include "matrix_matrix.hpp"
+#include "../printLA/printLA.hpp"
+#include "../single_matrix_opps/single_matrix.hpp"
 
-int main(){
+void old_mult_test(){
 
+	
 double A[2][2] = {
 	           {-52, 18},
                    {6.34, 100}
@@ -100,7 +104,32 @@ std::cout << "\nB2 * A2 =";
 printMatrix(result2);
 clearMatrix(result2);
 
+}
 
+void add_test(){
+
+   double ident[5][5];
+   generateIdentity(ident);
+
+   double random[5][5];
+   generateRandom(random);
+
+   printMatrix(random);
+
+   double result[5][5];
+
+   matrixAddition(ident, random, result);
+
+   printMatrix(result);
+}
+
+
+
+int main(){
+
+//old_mult_test();
+
+add_test();
 
 return 0;
 }
