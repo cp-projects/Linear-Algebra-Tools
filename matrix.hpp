@@ -80,6 +80,20 @@ void generateIdentity(double(&identity)[R][C])
 }
 
 
+
+
+template<int R, int C>
+void clearMatrix(double(&clear)[R][C]){
+
+    for(int i = 0; i < R; i++)
+        for(int j = 0; j < C; j++)
+            clear[i][j] = 0;
+
+
+}
+
+
+
 /*
  *
  * Implamentation of a transpose method for a matrix of undefined size
@@ -262,8 +276,10 @@ void swapRows(int rowOne, int rowTwo, double (&original)[R][C], double (&swapped
  *
  * */
 template<int N>
-void matrixMultiplicationNxN(double (&matrixOne)[N][N], double (&matrixTwo)[N][N], double (&result)[N][N])
+void matrixMultiplication(double (&matrixOne)[N][N], double (&matrixTwo)[N][N], double (&result)[N][N])
 {
+
+    printf("matrixMultiplication nxn\n");
 
     double temp;
     for(int v = 0; v < N; v++){
