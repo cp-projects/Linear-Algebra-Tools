@@ -66,5 +66,41 @@ printMatrix(result1);
 clearMatrix(result1);
 
 
+double A2[4][4] = {
+                   {1.2, 7000, -45, 69},
+                   {63.33, 2, 74, -62.2},
+                   {3.5, 13, 117, -0.01},
+		   {0,0,0,0}
+                                        };
+
+double B2[4][4] = {
+                   {11, -89, 7.71, 16},
+                   {-20.2, 99, 73.3, 55},
+                   {-4.5, 24, -1.73, 8.8},
+		   {0,0,0,0}
+                                          };
+
+std::cout << "A2 is \n";
+printMatrix(A2);
+
+std::cout << "B2 is \n";
+printMatrix(B2);
+
+double result2[4][4];
+
+matrixMultiplication(A2, B2, result2);
+
+std::cout << "\nA2 * B2 =";
+printMatrix(result2);
+clearMatrix(result2);
+
+matrixMultiplication(B2, A2, result2);
+
+std::cout << "\nB2 * A2 =";
+printMatrix(result2);
+clearMatrix(result2);
+
+
+
 return 0;
 }
