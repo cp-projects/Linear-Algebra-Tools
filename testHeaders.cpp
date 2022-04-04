@@ -8,7 +8,7 @@ int main(){
 	
 
 
-	double identity[4][4];
+	double identity[3][4];
 
 	generateIdentity(identity);
 

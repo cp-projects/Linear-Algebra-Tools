@@ -1,8 +1,8 @@
-#testHeaders: testHeaders.o myArithmetic.o
-	#g++ -o testHeaders testHeaders.o myArithmetic.o
+testHeaders: testHeaders.o myArithmetic.o
+	g++ -o testHeaders testHeaders.o myArithmetic.o
 
-testMM: testMatrixMultiplication.o
-	g++ -o testMM.out testMatrixMultiplication.o
+#testMM: testMatrixMultiplication.o
+	#g++ -o testMM.out testMatrixMultiplication.o
 
 testMatrixMultiplication.o: testMatrixMultiplication.cpp matrix.hpp
 	g++ -c testMatrixMultiplication.cpp
