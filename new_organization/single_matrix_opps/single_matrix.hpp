@@ -1,5 +1,5 @@
-#ifndef __cleanMatrix_H_
-#define __cleanMatrix_H_
+#ifndef __singleMatrix_H_
+#define __singleMatrix_H_
 
 template<int R, int C>
 void generateIdentity(double(&identity)[R][C]);
@@ -13,6 +13,6 @@ void transpose(double (&original)[R][C], double (&transposed)[C][R]);
 template<unsigned R, unsigned C>
 void generateRandom(double(&random)[R][C]);
 
-#include "cleanMatrix.cpp"
+#include "single_matrix.cpp"
 
 #endif

@@ -1,4 +1,4 @@
-#include "cleanMatrix.hpp"
+#include "single_matrix.hpp"
 #include "../printLA/printLA.hpp"
 
 void test_identity(){

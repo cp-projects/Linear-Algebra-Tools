@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include "cleanMatrix.hpp"
+#include "single_matrix.hpp"
 #include "../errorsLA/matrixErrors.hpp"
 
 template<int R, int C>
