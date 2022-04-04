@@ -8,55 +8,6 @@
 
 
 /*
- * dot product
- *
- *
- * */
-//maybe constexpr?
-double dot(double* vectorOne, double* vectorTwo, int len){
-
-    double dotProduct;
-    for(int i = 0; i < len; i++){
-    
-        dotProduct += vectorOne[i]*vectorTwo[i];
-    }
-
-return dotProduct;
-}
-
-
-/*
- * scaler
- *
- **/
-//run tests to see if this is actually evaluated at compile time
-constexpr void scale(double* vector, int len,  double scaler){
-
-   //double res[R];	
-   for(int i = 0; i < len; i++){
-       vector[i] *= scaler;
-   }
-
-}
-
-/*
- * subtract vector
- *
- * */
-//run tests to see if this is actually evaluated at compile time
-constexpr void subtractVector(double* vectorOne, double* vectorTwo, int len){
-
-    for(int i = 0; i < len; i++){
-    
-        vectorOne[i] -= vectorTwo[i];
-    
-    }
-
-}
-
-
-
-/*
  *
  * method for extracting a specific row as a vector
  *
@@ -339,72 +290,17 @@ double determinant(double (&matrix)[R][C])
 }
 
 
-/*
- * 
- *
- * Implamentation of the Cross Product
- *
- *
- * */
 
 
 
 
-template <int len>
-void cross( double (&vectorOne)[len], double (&vectorTwo)[len], double (&output)[len]){
 
 
-	if(len != 3) throw notR3();
 
 
- 
-        double matrix[2][2] = {{1,1},{1,1}};
-	for(int i = 0; i < len; i++){
-
-	    switch(i){
-	    
-                case 0:
-	
-	
-			matrix[0][0] = vectorOne[1];
-		        matrix[0][1] = vectorOne[2];
-		        matrix[1][0] = vectorTwo[1];
-		        matrix[1][1] = vectorTwo[2];
 
 
-		        output[0] = det2by2(matrix);	
-			    
-			break;
 
-		case 1:
-                        
-		
-			matrix[0][0] = vectorOne[0];
-                        matrix[0][1] = vectorOne[2];
-                        matrix[1][0] = vectorTwo[0];
-                        matrix[1][1] = vectorTwo[2];
-
-
-			output[1] = -det2by2(matrix);
-
-			break;
-
-		case 2:
-                        
-
-		        matrix[0][0] = vectorOne[0];
-                        matrix[0][1] = vectorOne[1];
-                        matrix[1][0] = vectorTwo[0];
-                        matrix[1][1] = vectorTwo[1];
-
-
-			output[2] = det2by2(matrix);
-			
-			break;  		}
-
-	};
-
-}
 
 
 void adj2by2(double (&input)[2][2], double (&output)[2][2]){

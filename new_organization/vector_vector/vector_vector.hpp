@@ -10,4 +10,6 @@ void subtractVectors(double* vectorOne, double* vectorTwo, int len);
 void addScaled(double* vectorOne, double* vectorTwo, int len, double scalar);
 void subtractScaled(double* vectorOne, double* vectorTwo, int len, double scalar);
 
+void cross( double (&vectorOne)[3], double (&vectorTwo)[3], double (&output)[3]);
+
 #endif

@@ -44,8 +44,31 @@ int main(){
     subtractScaled(vec1, vec2, 5, 2);
     printVector(vec1);
 
-    
-	
+
+    double crossVec1[3] = {1, 0, 0};
+    double crossVec2[3] = {0, 1, 0};
+    double result[3];
+
+    cross(crossVec1, crossVec2, result);
+
+    std::cout << "This";
+    printVector(crossVec1);
+    std::cout << " X  This";
+    printVector(crossVec2);
+
+    std::cout << " =  This";
+    printVector(result);
+
+
+    cross(crossVec2, crossVec1, result);
+
+    std::cout << "This";
+    printVector(crossVec2);
+    std::cout << " X  This";
+    printVector(crossVec1);
+
+    std::cout << " =  This";
+    printVector(result);
 
 return 0;
 }
