@@ -4,8 +4,11 @@
 
 int main(){
 
-    double A[4][4];
-    generateRandom(A);
+    double A[4][4] = {{1,2,3,4},
+                      {1,2,3,4},
+                      {1,2,3,4},
+                      {1,2,3,4}};
+    //generateRandom(A);
 
     printMatrix(A); 
 
@@ -16,7 +19,7 @@ int main(){
 
      matrixVectorMultiplication(A, vector, result);
 
-    //printVector(result);
+    printVector(result);
 
 
 return 0;
