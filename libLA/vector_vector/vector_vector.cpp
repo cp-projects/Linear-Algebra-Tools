@@ -1,3 +1,7 @@
+#include "vector_vector.hpp"
+#include "../determinant/determinant.hpp"
+
+
 double dot(double* vectorOne, double* vectorTwo, int len){
 
     double dotProduct;
@@ -72,5 +76,5 @@ void cross( double (&vectorOne)[3], double (&vectorTwo)[3], double (&output)[3])
                                                        };
 
         }
-
+}
 
