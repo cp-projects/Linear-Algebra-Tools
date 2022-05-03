@@ -32,6 +32,12 @@ class vector{
 		       fill((numeric_type)0.0);
 	             }
 
+	    //declared array constructor
+	    vector(arr_t& other){
+	        for(size_t i = 0; i < dimention; i++)
+                    m_self_vector[i] = other[i];
+	           }
+
 	    //copy constructor
 	    vector(l_literal_t other){
 	        for(size_t i = 0; i < dimention; i++)
@@ -191,6 +197,7 @@ class vector{
                                }; //end switch     
                      }//end for loop
 
+	           
 	          //static cap::vector result({indexZero, indexOne, indexTwo});
 		  //return &result;
 		  //return result;

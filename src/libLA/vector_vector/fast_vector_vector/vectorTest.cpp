@@ -80,7 +80,7 @@ int main(){
     
     double result[3];
     crossVec1.cross(crossVec2, result);
-    //cap::vector result(result);
+    cap::vector res1(result);
    
 
     std::cout << "This" << "   ";
@@ -89,15 +89,16 @@ int main(){
     crossVec2.print();
 
     std::cout << " =  \nThis" << "    ";
-    for(int i = 0; i < 3; i++)
+    res1.print();
+    /*for(int i = 0; i < 3; i++)
 	    std::cout << result[i] << " ";
-    std::cout << '\n';
+    std::cout << '\n';*/
     
 
 
     double result2[3];
     crossVec2.cross(crossVec1, result2);
-    //cap::vector<double, 3> result2(*Res);
+    cap::vector res2(result2);
 
     std::cout << "\n\nThis" << "   ";
     crossVec2.print();
@@ -105,9 +106,10 @@ int main(){
     crossVec1.print();
 
     std::cout << " =  \nThis" << "   ";
-    for(int i = 0; i < 3; i++)
+    res2.print();
+   /* for(int i = 0; i < 3; i++)
 	    std::cout << result2[i] << " ";
-    std::cout << '\n';
+    std::cout << '\n';*/
 
 return 0;
 }
