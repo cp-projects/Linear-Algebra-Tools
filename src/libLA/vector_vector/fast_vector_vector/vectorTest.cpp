@@ -77,27 +77,29 @@ int main(){
     cap::vector crossVec1({1.0, 0.0, 0.0});
     cap::vector crossVec2({0.0, 1.0, 0.0});
 
+    cap::vector<double, 3> *Res = crossVec1.cross(crossVec2);
+    cap::vector<double, 3> result(*Res);
 
-    crossVec1.cross(crossVec2);
-
-    std::cout << "This";
+    std::cout << "This" << "   ";
     crossVec1.print();
-    std::cout << " X  This";
+    std::cout << " X  \nThis" << "   ";
     crossVec2.print();
 
-    std::cout << " =  This";
-    //result.print();
+    std::cout << " =  \nThis" << "    ";
+    result.print();
+    
 
 
-    crossVec2.cross(crossVec1);
+    Res = crossVec2.cross(crossVec1);
+    cap::vector<double, 3> result2(*Res);
 
-    std::cout << "This";
+    std::cout << "\n\nThis" << "   ";
     crossVec2.print();
-    std::cout << " X  This";
+    std::cout << " X  \nThis" << "   ";
     crossVec1.print();
 
-    std::cout << " =  This";
-    //result.print();
+    std::cout << " =  \nThis" << "   ";
+    result2.print();
 
 return 0;
 }

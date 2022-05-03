@@ -38,16 +38,6 @@ class vector{
 		    m_self_vector[i] = other[i];
 	          }
 
-	    vector(r_literal_t other) noexcept{
-	        
-		m_length = other.m_length;
-		m_start_ptr = other.m_start_ptr;
-
-		other.m_length = 0;
-		other.m_start_ptr = nullptr;
-
-	    }
-
 	    ~vector<numeric_type, dimention>() {}
 
 	
@@ -141,6 +131,8 @@ class vector{
    private:	   
 	constexpr numeric_type det(numeric_type matrix2x2[2][2]){
             numeric_type result =  (matrix2x2[0][0] * matrix2x2[1][1]) - (matrix2x2[0][1] * matrix2x2[1][0]);
+	    if(result == -0)
+		    result = 0;
             return result;
            }
 
@@ -149,7 +141,7 @@ class vector{
 	}
 
    public:
-	void cross(cap::vector<numeric_type, dimention> &other){
+	ptr_t cross(cap::vector<numeric_type, dimention> &other){
 
 	/*	
 	std::assert((dimention == 3));
@@ -181,7 +173,7 @@ class vector{
                         matrix[0][1] = m_self_vector[2];
                         matrix[1][0] = other[0];
                         matrix[1][1] = other[2];
-                        indexOne = -det(matrix);
+                        indexOne = -det(matrix) ? det(matrix) != 0 : 0;
                         break;
 
                 case 2:
@@ -195,6 +187,7 @@ class vector{
                      }//end for loop
 
 	          static cap::vector result({indexZero, indexOne, indexTwo});
+		  return &result;
 		  //return result;
                   }//end function
 
