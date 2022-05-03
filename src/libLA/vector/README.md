@@ -14,3 +14,5 @@ addScale -- adds a scaled version of the second vector into the first vector (do
 
 subtractScale -- subtracts a scaled version of the second vector into the first vector (does not effect second vector)
 
+cross -- takes the cross product, the results vector must be declared before inclusion as a typical array
+         and cast to a vector after the cross product resolves (for now)

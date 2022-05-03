@@ -1,6 +1,4 @@
 #include <iostream>
-#include "fast_vector_vector.hpp"
-#include "../../printLA/printLA.hpp"
 #include "vector.hpp"
 
 int main(){
@@ -90,12 +88,9 @@ int main(){
 
     std::cout << " =  \nThis" << "    ";
     res1.print();
-    /*for(int i = 0; i < 3; i++)
-	    std::cout << result[i] << " ";
-    std::cout << '\n';*/
-    
 
-
+    //a full call includes a declaration
+    //and a casting of the results
     double result2[3];
     crossVec2.cross(crossVec1, result2);
     cap::vector res2(result2);
@@ -107,9 +102,6 @@ int main(){
 
     std::cout << " =  \nThis" << "   ";
     res2.print();
-   /* for(int i = 0; i < 3; i++)
-	    std::cout << result2[i] << " ";
-    std::cout << '\n';*/
 
 return 0;
 }
