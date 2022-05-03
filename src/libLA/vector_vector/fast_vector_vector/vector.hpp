@@ -141,13 +141,15 @@ class vector{
 	}
 
    public:
-	ptr_t cross(cap::vector<numeric_type, dimention> &other){
+	void cross(cap::vector<numeric_type, dimention> &other, arr_t& result){
 
-	/*	
+	/*
 	std::assert((dimention == 3));
 	std::assert((other.len() == 3));
 	std::assert((result.len() == 3));
         */
+
+	///vector_t result = *Res;
 
         numeric_type matrix[2][2];
 	//fill_matrix(matrix, 0.0);
@@ -166,6 +168,7 @@ class vector{
                         matrix[1][0] = other[1];
                         matrix[1][1] = other[2];
                         indexZero = det(matrix);
+			result[i] = indexZero;
                         break;
 
                 case 1:
@@ -174,6 +177,7 @@ class vector{
                         matrix[1][0] = other[0];
                         matrix[1][1] = other[2];
                         indexOne = -det(matrix) ? det(matrix) != 0 : 0;
+			result[i] = indexOne;
                         break;
 
                 case 2:
@@ -182,12 +186,13 @@ class vector{
                         matrix[1][0] = other[0];
                         matrix[1][1] = other[1];
                         indexTwo = det(matrix);
+			result[i] = indexTwo;
                         break;
                                }; //end switch     
                      }//end for loop
 
-	          static cap::vector result({indexZero, indexOne, indexTwo});
-		  return &result;
+	          //static cap::vector result({indexZero, indexOne, indexTwo});
+		  //return &result;
 		  //return result;
                   }//end function
 
