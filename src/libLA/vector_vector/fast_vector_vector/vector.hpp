@@ -3,7 +3,7 @@
 #include<iostream>
 #include<array>
 #include<stdlib.h>
-#include<ostream>
+#include <cassert>
 
 namespace cap{
 
@@ -11,19 +11,42 @@ template<typename numeric_type, size_t dimention>
 class vector{
 
     private://typedefs
-	    typedef numeric_type vector_t[dimention];
+	    typedef numeric_type arr_t[dimention];
+	    typedef numeric_type* val_ptr_t;
+	    typedef const arr_t& l_literal_t;
+	    typedef arr_t&& r_literal_t;
+	    
+	    typedef cap::vector<numeric_type, dimention> vector_t;
+	    typedef vector_t* ptr_t;
+	    typedef const vector_t& l_val_t;
+	    typedef vector_t&& r_val_t;
+	    
+
 
 
     public: //constructors and destructors
+
+	    //generic constructor
 	    vector<numeric_type, dimention>()
 	       :m_self_vector()  {
-		       fill(0);
+		       fill((numeric_type)0.0);
 	             }
 
-	    vector(const vector_t &other){
+	    //copy constructor
+	    vector(l_literal_t other){
 	        for(size_t i = 0; i < dimention; i++)
 		    m_self_vector[i] = other[i];
 	          }
+
+	    vector(r_literal_t other) noexcept{
+	        
+		m_length = other.m_length;
+		m_start_ptr = other.m_start_ptr;
+
+		other.m_length = 0;
+		other.m_start_ptr = nullptr;
+
+	    }
 
 	    ~vector<numeric_type, dimention>() {}
 
@@ -31,6 +54,8 @@ class vector{
 
     private: //the acutal vector object
 	    numeric_type m_self_vector[dimention];
+	    val_ptr_t m_start_ptr = m_self_vector;
+	    size_t m_length;
 
 
 
@@ -54,30 +79,15 @@ class vector{
                 std::cout << '\n';
                }
 
-	   
-	   void operator<<(void){
-                
-              print();
-		   /*
-		 static std::ostream stream;
-		 for(size_t i = 0; i < other.len(); i++)
-                     stream << other[i] << '\n';
-                 return stream;*/
-              }
 
-	   std::size_t len(){
-	       return dimention;
-	      }
-
-	   /*void operator<<(std::ostream& ret, cap::vector<numeric_type, dimention> &other){
-	          other.print();
-	      }*/
-
-
-	   //reference values
+	   //references
 	   numeric_type operator[](size_t index){
 	       return m_self_vector[index];
 	      }
+
+	   std::size_t len(){
+               return dimention;
+              }
 
 	   //math
 	   constexpr numeric_type dot(cap::vector<numeric_type, dimention> other){
@@ -126,17 +136,74 @@ class vector{
                for(size_t i = 0; i < dimention; i++)
                    m_self_vector[i] -= (scalar * other[i]);
                  }
+
+        
+   private:	   
+	constexpr numeric_type det(numeric_type matrix2x2[2][2]){
+            numeric_type result =  (matrix2x2[0][0] * matrix2x2[1][1]) - (matrix2x2[0][1] * matrix2x2[1][0]);
+            return result;
+           }
+
+	void fill_matrix(numeric_type matrix2x2[2][2], numeric_type val){
+	    matrix2x2[0][0] = val; matrix2x2[0][1] = val; matrix2x2[1][0] = val; matrix2x2[1][1] = val;
+	}
+
+   public:
+	void cross(cap::vector<numeric_type, dimention> &other){
+
+	/*	
+	std::assert((dimention == 3));
+	std::assert((other.len() == 3));
+	std::assert((result.len() == 3));
+        */
+
+        numeric_type matrix[2][2];
+	//fill_matrix(matrix, 0.0);
+
+	numeric_type indexZero;
+	numeric_type indexOne;
+	numeric_type indexTwo;
+
+        for(size_t i = 0; i < 3; i++){
+
+            switch(i){
+
+                case 0:
+                        matrix[0][0] = m_self_vector[1];
+                        matrix[0][1] = m_self_vector[2];
+                        matrix[1][0] = other[1];
+                        matrix[1][1] = other[2];
+                        indexZero = det(matrix);
+                        break;
+
+                case 1:
+                        matrix[0][0] = m_self_vector[0];
+                        matrix[0][1] = m_self_vector[2];
+                        matrix[1][0] = other[0];
+                        matrix[1][1] = other[2];
+                        indexOne = -det(matrix);
+                        break;
+
+                case 2:
+                        matrix[0][0] = m_self_vector[0];
+                        matrix[0][1] = m_self_vector[1];
+                        matrix[1][0] = other[0];
+                        matrix[1][1] = other[1];
+                        indexTwo = det(matrix);
+                        break;
+                               }; //end switch     
+                     }//end for loop
+
+	          static cap::vector result({indexZero, indexOne, indexTwo});
+		  //return result;
+                  }//end function
+
+
+
+
  
 
-};
+      };
 
-/*
-std::ostream& operator<<(const cap::vector<> &other){
-                 static std::ostream stream;
-                 for(size_t i = 0; i < other.len(); i++)
-                     stream << other[i] << '\n';
-                 return stream;
-              }
-*/
 
 }

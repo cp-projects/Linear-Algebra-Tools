@@ -74,30 +74,30 @@ int main(){
     
 
 
-    double crossVec1[3] = {1, 0, 0};
-    double crossVec2[3] = {0, 1, 0};
-    double result[3];
-
-    cross(crossVec1, crossVec2, result);
-
-    std::cout << "This";
-    printVector(crossVec1);
-    std::cout << " X  This";
-    printVector(crossVec2);
-
-    std::cout << " =  This";
-    printVector(result);
+    cap::vector crossVec1({1.0, 0.0, 0.0});
+    cap::vector crossVec2({0.0, 1.0, 0.0});
 
 
-    cross(crossVec2, crossVec1, result);
+    crossVec1.cross(crossVec2);
 
     std::cout << "This";
-    printVector(crossVec2);
+    crossVec1.print();
     std::cout << " X  This";
-    printVector(crossVec1);
+    crossVec2.print();
 
     std::cout << " =  This";
-    printVector(result);
+    //result.print();
+
+
+    crossVec2.cross(crossVec1);
+
+    std::cout << "This";
+    crossVec2.print();
+    std::cout << " X  This";
+    crossVec1.print();
+
+    std::cout << " =  This";
+    //result.print();
 
 return 0;
 }
