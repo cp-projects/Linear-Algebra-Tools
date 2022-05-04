@@ -76,9 +76,8 @@ int main(){
     cap::vector crossVec2({0.0, 1.0, 0.0});
 
     
-    double result[3];
-    crossVec1.cross(crossVec2, result);
-    cap::vector res1(result);
+    crossVec1.cross(crossVec2);
+    cap::vector res1 = crossVec1.Result();
    
 
     std::cout << "This" << "   ";
@@ -89,11 +88,8 @@ int main(){
     std::cout << " =  \nThis" << "    ";
     res1.print();
 
-    //a full call includes a declaration
-    //and a casting of the results
-    double result2[3];
-    crossVec2.cross(crossVec1, result2);
-    cap::vector res2(result2);
+    crossVec2.cross(crossVec1);
+    cap::vector res2 = crossVec2.Result();
 
     std::cout << "\n\nThis" << "   ";
     crossVec2.print();

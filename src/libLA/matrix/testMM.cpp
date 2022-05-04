@@ -132,6 +132,7 @@ int main(){
 	cap::matrix first = cap::matrix<double, 4, 4>();
 	cap::matrix second = cap::matrix<double, 4, 4>();
 
+
 //	first.get_row_len();
 //
 	first.Identity();
@@ -149,12 +150,31 @@ int main(){
 	second.Random();
 	second.print();
 
-	first.matrixMultiplication(second);
+	first*second;
 
 	std::cout << "\n\n\n\n\n";
 
 	cap::matrix result = first.Result();
 	result.print();
+
+	second.Identity();
+	result+second;
+	cap::matrix res2 = result.Result();
+
+	std::cout << "\n\n\n\n\n";
+
+	res2.print();
+
+
+	cap::matrix test_non_square = cap::matrix<double, 3,4>();
+
+	test_non_square.matrixMultiplication(res2);
+
+	cap::matrix res3 = test_non_square.Result();
+
+	std::cout << "\n\n\n\n\n";
+
+	res3.print();
 
 
 	
