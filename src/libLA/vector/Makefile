@@ -1,7 +1,7 @@
 vectorTest.out: vectorTest.o
-	g++ -o vectorTest.out vectorTest.o
+	g++ -std=c++17 -o vectorTest.out vectorTest.o
 vectorTest.o: vectorTest.cpp vector.hpp
-	g++ -c vectorTest.cpp
+	g++ -std=c++17 -c vectorTest.cpp
 
 clean:
 	rm ./*.o ./*.out
