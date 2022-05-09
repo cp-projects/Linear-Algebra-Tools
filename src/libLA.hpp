@@ -15,4 +15,4 @@
 #include "libLA/determinant/determinant.hpp"
 #include "libLA/elemination/gaussian.hpp"
 
-#endif
+#endif    
