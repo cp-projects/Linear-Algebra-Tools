@@ -75,7 +75,7 @@ class matrix{
 
        public:
              #include "tcc/normal_getters.tcc" // get_row_len(), Result(), Print()
-             #include "tcc/other_getters.tcc" //(broken) Result() Print()
+            // #include "tcc/other_getters.tcc" //(broken) Result() Print()
              #include "tcc/double_access_get_set.tcc" //[]
              #include "tcc/universal_setters.tcc" //Random(), Fill()
            

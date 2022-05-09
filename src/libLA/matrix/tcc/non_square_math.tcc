@@ -1,8 +1,9 @@
 #pragma once
+                //typedef typename cap::matrix<numeric_type, Rows, Other_Col>::m_other_t<Columns>::result_t o_result_t;
 
 
                 template <size_t Other_Col>
-                typename cap::matrix<numeric_type, Rows, Other_Col>::m_other_t<Columns>::result_t matrixMultiplication(cap::matrix<numeric_type, Columns, Other_Col> &other){
+                typename cap::matrix<numeric_type, Rows, Columns>::m_other_t<Other_Col> matrixMultiplication(cap::matrix<numeric_type, Columns, Other_Col> &other){
                     if(Columns != Columns)
                            throw wrongDimentions();
 
@@ -12,7 +13,8 @@
                             for(int v = 0; v < Columns; v++)
                                 m_other.o_result[i][j] += m_self_matrix[i][v] * other[v][j];
 
-                    typename cap::matrix<numeric_type,Rows,Other_Col>::m_other_t<Other_Col>::result_t ret_val = m_other.Result();
-                    return Result(ret_val);
+                    //typename cap::matrix<numeric_type,Rows,Other_Col>::m_other_t<Other_Col>::result_t ret_val = m_other.Result();
+                    //return Result(ret_val);
+		    return m_other;
                                }
 

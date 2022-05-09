@@ -1,7 +1,7 @@
 #pragma once          
 
 
-           template <size_t Other_Col>
+            template <size_t Other_Col>
             struct m_other_t : cap::matrix<numeric_type, Columns, Other_Col>{
 
                 public:
@@ -90,6 +90,10 @@
                          result_t Result(){
                              return o_result;
                             }
+
+			  
+
+			  //#include "other_getters.tcc" //(broken) Result() Print()
 
                      };
 

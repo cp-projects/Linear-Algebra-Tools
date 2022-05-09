@@ -177,7 +177,10 @@ int main(){
         std::cout << "\n\n\n\n\n";
 	test_non_square.print();
 
-//	cap::matrix res3 = test_non_square.matrixMultiplication(res2);
+//	cap::matrix res3 = 
+        test_non_square.matrixMultiplication(res2);
+	//typename cap::matrix::m_other_t res5 = typename cap::matrix::m_other_t<4>();
+        test_non_square.m_other_t.print();
 	// res3 = test_non_square.Result(m_other<4> other = m_other_t<4>());
 
 	//std::cout << "\n\n\n\n\n";
