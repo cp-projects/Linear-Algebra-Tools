@@ -21,29 +21,45 @@ class vector{
 	    typedef vector_t* ptr_t;
 	    typedef const vector_t& l_val_t;
 	    typedef vector_t&& r_val_t;
-	    
+	   
+            typedef typename std::initializer_list<numeric_type> init_t;
+	    typedef typename init_t::iterator init_Iterator;
 
+	    typedef typename std::pair<numeric_type, vector_t> scale_pair_t;
 
 
     public: //constructors and destructors
 
 	    //generic constructor
 	    vector<numeric_type, dimention>()
-	       :m_self_vector()  {
+	       :m_self_vector(), m_length(dimention) {
 		       fill((numeric_type)0.0);
 	             }
 
 	    //declared array constructor
-	    vector(arr_t& other){
+	    vector(arr_t& other)
+	       : m_length(dimention) {
 	        for(size_t i = 0; i < dimention; i++)
                     m_self_vector[i] = other[i];
 	           }
 
 	    //copy constructor
-	    vector(l_literal_t other){
+	    vector(l_literal_t other)\
+	       : m_length(dimention) {
 	        for(size_t i = 0; i < dimention; i++)
 		    m_self_vector[i] = other[i];
 	          }
+
+
+	    vector(init_t initializer)
+                   : m_length(dimention) {
+                   int i = 0;
+                   for(init_Iterator itr = initializer.begin(); itr < initializer.end(); itr++){
+                        m_self_vector[i] = *(itr);
+                       i++;
+		      }
+                    }
+
 
 	    ~vector<numeric_type, dimention>() {}
 
@@ -55,6 +71,8 @@ class vector{
 	    
 	    val_ptr_t m_start_ptr = m_self_vector;
 	    size_t m_length;
+
+	    numeric_type m_dot_product;
 
 
 
@@ -93,52 +111,65 @@ class vector{
               }
 
 	   //math
-	   constexpr numeric_type dot(cap::vector<numeric_type, dimention> other){
-	       numeric_type dotProduct;
+	   constexpr numeric_type dot(vector_t &other){
+	       m_dot_product= 0;
                for(size_t i = 0; i < dimention; i++)
-                   dotProduct += m_self_vector[i] * other[i];
-                   return dotProduct;
-                  }
+                   m_dot_product += m_self_vector[i] * other[i];
+               return m_dot_product;
+              }
 	   
-	   constexpr numeric_type operator*(cap::vector<numeric_type, dimention> other){
+	   constexpr numeric_type operator*(vector_t &other){
 	          return dot(other);
 	         }
 
 	   constexpr void scale(numeric_type scaler){
                for(int i = 0; i < dimention; i++)
                    m_self_vector[i] *= scaler;
-                 }
+                  }
 
 	   constexpr void operator*(numeric_type scaler){
-	           scale(scaler);
+	       scale(scaler);
 	      }
 
-	   constexpr void addInto(cap::vector<numeric_type, dimention> &other){
+	   constexpr void addInto(vector_t &other){
                for(size_t i = 0; i < dimention; i++)
                    m_self_vector[i] += other[i];
-                 }
-	   constexpr void operator+=(cap::vector<numeric_type, dimention> &other){
+                  }
+
+	   constexpr void operator+=(vector_t &other){
 	       addInto(other);
 	      }
 
-           constexpr void subtractInto(cap::vector<numeric_type, dimention> &other){
+           constexpr void subtractInto(vector_t &other){
                for(size_t i = 0; i < dimention; i++)
                    m_self_vector[i] -= other[i];
-                 }
+                  }
 
-	   constexpr void operator -=(cap::vector<numeric_type, dimention> &other){
+	   constexpr void operator -=(vector_t &other){
 	       subtractInto(other);
 	      }
 
-	   constexpr void addScaled(cap::vector<numeric_type, dimention> &other, numeric_type scalar){
+	   constexpr void addScaled(vector_t &other, numeric_type scalar){
                for(size_t i = 0; i < dimention; i++)
-                   m_self_vector[i] += (scalar * other[i]);
-                 }
+                   m_self_vector[i] += (scalar * other[i]);	  
+	          }
 
-           constexpr void subtractScaled(cap::vector<numeric_type, dimention> &other, numeric_type scalar){
+	   void operator+=(const scale_pair_t &pair){
+	       vector_t other = pair.second;
+	       numeric_type scalar = pair.first;
+	       addScaled(other, scalar);
+	      }
+
+           constexpr void subtractScaled(vector_t &other, numeric_type scalar){
                for(size_t i = 0; i < dimention; i++)
                    m_self_vector[i] -= (scalar * other[i]);
                  }
+
+	   void operator-=(const scale_pair_t &pair){
+               vector_t other = pair.second;
+               numeric_type scalar = pair.first;
+               subtractScaled(other, scalar);
+              }
 
         
    private:	   
@@ -151,7 +182,7 @@ class vector{
 
 	void fill_matrix(numeric_type matrix2x2[2][2], numeric_type val){
 	    matrix2x2[0][0] = val; matrix2x2[0][1] = val; matrix2x2[1][0] = val; matrix2x2[1][1] = val;
-	}
+	  }
 
    public:
 	void cross(cap::vector<numeric_type, dimention> &other){

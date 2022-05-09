@@ -28,17 +28,17 @@ int main(){
 
 
 
-    cap::vector vec2({1.0,1.0,1.0,1.0,1.0});
+    cap::vector vec2 = cap::vector({1.0,1.0,1.0,1.0,1.0});
 
     double DOT = vec2*vec1;
 
-    std::cout << "DOT Product is " << DOT << '\n';
+    std::cout << "DOT Product of vec2 and vec1 is " << DOT << '\n';
 
     vec2*2;
 
     DOT = vec0*vec2;
 
-    std::cout << "DOT Product after scaling is " << DOT << '\n';
+    std::cout << "DOT Product of the random vec0 and vec2 after scaling is " << DOT << '\n';
 
 
     std::cout << " Adding ";
@@ -63,11 +63,11 @@ int main(){
 
     
     std::cout << "Adding Scaled back Version ";
-    vec1.addScaled(vec2, 2);
+    vec1+={2,vec2};
     vec1.print();
 
     std::cout << "Subtracting back off scaled ";
-    vec1.subtractScaled(vec2, 2);
+    vec1-={2, vec2};
     vec1.print();
     
 

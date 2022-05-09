@@ -129,6 +129,13 @@ void add_test(){
 int main(){
 
 	{
+
+        cap::matrix test_constructor = cap::matrix<double, 2,2> ({{1.0,1.0},{1.0,1.0}});
+	test_constructor.print();
+
+	std::cout << "\n\n\n\n\n";
+
+
 	cap::matrix first = cap::matrix<double, 4, 4>();
 	cap::matrix second = cap::matrix<double, 4, 4>();
 
@@ -151,7 +158,6 @@ int main(){
 	second.print();
 
 	first*second;
-
 	std::cout << "\n\n\n\n\n";
 
 	cap::matrix result = first.Result();
@@ -162,19 +168,29 @@ int main(){
 	cap::matrix res2 = result.Result();
 
 	std::cout << "\n\n\n\n\n";
-
 	res2.print();
 
 
-	cap::matrix test_non_square = cap::matrix<double, 3,4>();
+	cap::matrix<double, 3,4> test_non_square = {{1,1,1,1},
+			                            {1,1,1,1},
+						    {1,1,1,1}};
+        std::cout << "\n\n\n\n\n";
+	test_non_square.print();
 
-	test_non_square.matrixMultiplication(res2);
+//	cap::matrix res3 = test_non_square.matrixMultiplication(res2);
+	// res3 = test_non_square.Result(m_other<4> other = m_other_t<4>());
 
-	cap::matrix res3 = test_non_square.Result();
+	//std::cout << "\n\n\n\n\n";
+	//res3.print();
 
-	std::cout << "\n\n\n\n\n";
 
-	res3.print();
+	//cap::matrix resquare = cap::matrix<double, 3,3>();
+	//resquare.Identity();
+
+	//std::cout << "\n\n\n\n\n";
+        //resquare.matrixMultiplication(res3);
+	//cap::matrix res4 = resquare.Result();
+	//res4.print();
 
 
 	
