@@ -12,7 +12,7 @@ int main(){
 
 	cap::vector<double, 2> construct = {2,0};
 
-	cap::vector construct_res = test_constructor.matrixVectorMultiplication(construct);
+	cap::vector construct_res = test_constructor*construct;
 
         construct_res.print();
 
@@ -100,6 +100,11 @@ int main(){
 	first.print();
 
 	std::cout << "\n\n\n\n\n";
+
+	cap::vector transformed1 = first*row1;
+	transformed1.print();
+
+	std::cout << "\n\n\n\n\n";
 	
 	first.Transpose();
 	first.print();
@@ -111,10 +116,17 @@ int main(){
 
 	std::cout << "\n\n\n\n\n";
 
+	cap::vector transformed2 = second*transformed1;
+        transformed2.print();
+
+        std::cout << "\n\n\n\n\n";
+
 	cap::matrix result = first*second;
 	result.print();
 
 	std::cout << "\n\n\n\n\n";
+
+	//second.extractRow
 
 	second.Identity();
 	cap::matrix res2 = result+second;
