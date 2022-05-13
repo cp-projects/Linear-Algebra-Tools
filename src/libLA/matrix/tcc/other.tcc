@@ -20,7 +20,12 @@
                 public:
                         m_other_t()
                                 : o_row_len(Columns), o_col_len(Other_Col), o_start_ptr((val_ptr_t)o_self_matrix){
-                                        Fill(0);}
+                                        Fill(2);}
+
+//_other_t(cap::matrix<numeric_type, Columns, Other_Col> initializer)
+	// o_row_len(Columns), o_row_len(Other_Col){
+	
+	//ill(2);}
 
                         m_other_t(numeric_type initializer[Columns][Other_Col])
                                 : o_row_len(Columns), o_col_len(Other_Col), o_start_ptr((val_ptr_t)o_self_matrix){
@@ -38,7 +43,8 @@
                                 : o_row_len(Columns), o_col_len(Other_Col), o_start_ptr((val_ptr_t)o_self_matrix){
                                         for(size_t i = 0; i < Columns; i++)
                                             for(size_t j = 0; j < Other_Col; j++)
-                                                o_self_matrix[i][j] = initializer[i][j];
+                                                o_self_matrix[i][j] = 2;
+							//initializer[i][j];
 
                                         for(size_t i = 0; i < Rows; i++)
                                             for(size_t j = 0; j < Other_Col; j++)

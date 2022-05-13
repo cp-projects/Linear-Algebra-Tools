@@ -1,19 +1,30 @@
 #pragma once
 
+template <size_t Other_Col>
+matrix(numeric_type &initializer[Rows][Other_Col])
+    : m_row_len(Rows), m_col_len(Other_Col){
+        for(size_t i = 0; i < Rows; i++)
+            for(size_t j = 0; j < Other_Col; j++)
+                m_result[i][j] = initializer[i][j];
+    
+    }
+
+
+//~matrix
              
-             
-             /*
+           
+            /* 
             template <size_t Other_Col>
-            matrix(matrix_t::m_other_t &initializer)
-                     : m_row_len(Rows), m_col_len(Columns), m_start_ptr((val_ptr_t)m_self_matrix){
+            matrix(m_other_t<Other_COl> &initializer)
+                     : m_row_len(initializer.o_row_len), m_col_len(initializer.o_col_len), m_start_ptr((val_ptr_t)m_self_matrix){
                      for(size_t i = 0; i < Rows; i++)
-                         for(size_t j = 0; j < Column; j++)
+                         for(size_t j = 0; j < Columns; j++)
                              m_self_matrix[i][j] = initializer[i][j];
 
                       for(size_t i = 0; i < Rows; i++)
                           for(size_t j = 0; j < Other_Col; j++)
                              m_result[i][j] = initializer.o_result[i][j];
-                                       }          */
+                                       } */         
 
             //template <size_t Other_Col>
             //cap::matrix<double, 3, 3>::matrix(cap::matrix<double, 3, 3>::m_other_t<4>::result_t&

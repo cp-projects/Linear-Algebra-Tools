@@ -143,11 +143,14 @@ int main(){
 //	first.get_row_len();
 //
 	first.Identity();
+	first.print();
+
+	std::cout << "\n\n\n\n\n";
 
 	first.Random();
-//	first.print();
+	first.print();
 
-	//std::cout << "\n\n\n\n\n";
+	std::cout << "\n\n\n\n\n";
 
 	first.Transpose();
 	first.print();
@@ -176,9 +179,15 @@ int main(){
 						    {1,1,1,1}};
         std::cout << "\n\n\n\n\n";
 	test_non_square.print();
+	std::cout << "\n\n\n\n\n";
+ 
+	cap::matrix res3 = test_non_square.matrixMultiplication(res2);
+	//cap::matrix res3 = (cap::matrix<double, 4, 4>) test_non_square.Result();
+        
+	res3.print();
+	std::cout << "\n\n\n\n\n";
 
-//	cap::matrix res3 = 
-        test_non_square.matrixMultiplication(res2);
+//      test_non_square.matrixMultiplication(res2);
 	//typename cap::matrix::m_other_t res5 = typename cap::matrix::m_other_t<4>();
        // test_non_square.m_other_t.print();
 	// res3 = test_non_square.Result(m_other<4> other = m_other_t<4>());
@@ -187,13 +196,29 @@ int main(){
 	//res3.print();
 
 
-	//cap::matrix resquare = cap::matrix<double, 3,3>();
-	//resquare.Identity();
+	cap::matrix resquare = cap::matrix<double, 3,3>();
+	resquare.Identity();
 
-	//std::cout << "\n\n\n\n\n";
-        //resquare.matrixMultiplication(res3);
+	std::cout << "\n\n\n\n\n";
+	cap::matrix res4 = resquare.matrixMultiplication(test_non_square);
 	//cap::matrix res4 = resquare.Result();
-	//res4.print();
+	res4.print();
+
+        std::cout << "\n\n\n\n\n";
+        test_non_square.print();
+        std::cout << "\n\n\n\n\n";
+
+
+	resquare.Random();
+
+	std::cout << "\n\n\n\n\n";
+	resquare.print();
+	std::cout << "\n\n\n\n\n";
+
+        res4 = resquare.matrixMultiplication(test_non_square);
+        std::cout << "\n\n\n\n\n";
+        res4.print();
+	std::cout << "\n\n\n\n\n";
 
 
 	
