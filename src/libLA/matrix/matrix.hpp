@@ -87,10 +87,28 @@ class matrix{
              #include "tcc/normal/non_square_math.tcc" //mult
 
 
+    /*
+     *
+     * Row Operations
+     *
+     * */
+	    
     public:
            
             #include "tcc/row_ops/basic_io.tcc"
             #include "tcc/row_ops/math_operations.tcc"
+
+
+     /*
+      * 
+      * Matrix Vector Operations
+      *
+      *
+      * */
+ 
+      public:
+
+	     #include "tcc/matrix_vector/matrix_vector.tcc"
 
 
 

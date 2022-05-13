@@ -10,6 +10,13 @@ int main(){
 
 	std::cout << "\n\n\n\n\n";
 
+	cap::vector<double, 2> construct = {2,0};
+
+	cap::vector construct_res = test_constructor.matrixVectorMultiplication(construct);
+
+        construct_res.print();
+
+	std::cout << "\n\n\n\n\n";
 
 	cap::matrix first = cap::matrix<double, 4, 4>();
 	cap::matrix second = cap::matrix<double, 4, 4>();
