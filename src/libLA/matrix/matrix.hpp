@@ -39,7 +39,7 @@ class matrix{
 	 */
 
 	public:
-            #include "tcc/normal_constructors.tcc" //empty, array, initializer list (all stack)
+            #include "tcc/constructors.tcc" //empty, array, initializer list (all stack)
            
                   
 
