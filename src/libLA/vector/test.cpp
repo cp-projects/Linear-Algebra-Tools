@@ -76,8 +76,7 @@ int main(){
     cap::vector crossVec2({0.0, 1.0, 0.0});
 
     
-    crossVec1.cross(crossVec2);
-    cap::vector res1 = crossVec1.Result();
+    cap::vector res1 = crossVec1.cross(crossVec2);
    
 
     std::cout << "This" << "   ";
@@ -88,8 +87,7 @@ int main(){
     std::cout << " =  \nThis" << "    ";
     res1.print();
 
-    crossVec2.cross(crossVec1);
-    cap::vector res2 = crossVec2.Result();
+    cap::vector res2 = crossVec2.cross(crossVec1);
 
     std::cout << "\n\nThis" << "   ";
     crossVec2.print();

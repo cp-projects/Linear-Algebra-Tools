@@ -185,7 +185,7 @@ class vector{
 	  }
 
    public:
-	void cross(cap::vector<numeric_type, dimention> &other){
+	cap::vector<numeric_type, dimention> cross(cap::vector<numeric_type, dimention> &other){
 
 	if(dimention != 3)
                          throw notR3();
@@ -228,6 +228,7 @@ class vector{
                         break;
                                }; //end switch     
                      }//end for loop
+	          return m_result;
                   }//end function
 
 
