@@ -3,7 +3,7 @@
 
 int main(){
 
-	{
+	
 
         cap::matrix test_constructor = cap::matrix<double, 2,2> ({{1.0,1.0},{1.0,1.0}});
 	test_constructor.print();
@@ -56,8 +56,9 @@ int main(){
 	cap::matrix<double, 3,4> test_non_square = {{1,1,1,1},
 			                            {1,1,1,1},
 						    {1,1,1,1}};
-        
+        test_non_square*2; 
 	test_non_square.print();
+	test_non_square*0.5;
 	
 	std::cout << "\n\n\n\n\n";
  
@@ -88,10 +89,10 @@ int main(){
 
 	std::cout << "\n\n\n\n\n";
 
+	cap::matrix res5 = res4.transpose_ns();
+	res5.print();
 
-	
-
-	}
+	std::cout << "\n\n\n\n\n";
 
 
 

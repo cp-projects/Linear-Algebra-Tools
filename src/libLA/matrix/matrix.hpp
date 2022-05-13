@@ -75,27 +75,15 @@ class matrix{
 	      * 
 	      * */
              #include "tcc/square_setters.tcc" //Identity(), Transpose()
-             #include "tcc/square_math.tcc"  // *, +
-	     /*
-	      * End
-	      * */
+             #include "tcc/square_math.tcc"  // *, +, -, scale
+	     
 
 	     /*
 	      *
 	      * Only Defined for Non-Square Matricies
 	      *
 	      * */
-             #include "tcc/non_square_math.tcc" //*
-	     /*
-	      * End
-	      * */
-
-
-	
-	      /*
-              * Remember to come back and and do the non_square transpose
-              *  maybe define with a macro if
-              * */
+             #include "tcc/non_square_math.tcc" //mult,scale
 
 
 
