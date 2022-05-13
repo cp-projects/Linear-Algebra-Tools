@@ -22,6 +22,41 @@ int main(){
 
 	std::cout << "\n\n\n\n\n";
 
+        first*2;
+        first.print();
+
+	std::cout << "\n\n\n\n\n";
+  
+	cap::vector<double, 4> row1 = first.extractRow(1);
+	row1.print();
+
+	std::cout << "\n\n\n\n\n";
+
+        first.replaceRow(4, row1);
+	first.print();
+
+	std::cout << "\n\n\n\n\n";
+
+	cap::vector<double, 4> col1 = first.extractColumn(1);
+        col1.print();
+
+        std::cout << "\n\n\n\n\n";
+
+        first.replaceColumn(4, col1);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	first = first.swapRows(1, 2);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	first = first.swapColumns(1, 2);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
 	first.Random();
 	first.print();
 
@@ -91,6 +126,21 @@ int main(){
 
 	cap::matrix res5 = res4.transpose_ns();
 	res5.print();
+
+	std::cout << "\n\n\n\n\n";
+
+	cap::matrix<double, 3, 3> test_pow  = {{1,0,0},
+		                               {0,2,0},
+				               {0,0,3}};
+
+         cap::matrix res6 = test_pow^4;
+	 res6.print();
+
+	/*cap::matrix res6 = test_pow;
+	res6 = res6*test_pow;
+	res6 = res6*test_pow;
+        res6 = res6*test_pow;
+	res6.print();*/
 
 	std::cout << "\n\n\n\n\n";
 

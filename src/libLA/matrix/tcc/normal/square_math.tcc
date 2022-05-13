@@ -13,13 +13,13 @@
                   for(size_t v = 0; v < Rows; v++){
                       for(size_t i = 0; i < Rows; i++){
 
-                  temp = m_self_matrix[i][v];
-                  for(size_t j = 0; j < Rows; j++)
-                    m_result[i][j] += temp * other[v][j];
-                     }
-                    }
+                          temp = m_self_matrix[i][v];
+                          for(size_t j = 0; j < Rows; j++)
+                              m_result[i][j] += temp * other[v][j];
+                           }
+                          }
                  return m_result;
-                  }
+                }
 
                matrix_t operator*(matrix_t &other){
                    return matrixMultiplication(other);
@@ -85,5 +85,28 @@
                void operator*(numeric_type scalar){
 	           scale(scalar);
 	          }
+
+
+
+               /*
+		* Take the Matrix to a specific Exponent;
+		*
+		* */
+
+               matrix_t pow(int power){
+                   if(Rows != Columns)
+                          throw mustBeSquare();
+
+		   static matrix_t self = matrix(m_self_matrix);
+		   for(int pow = 0; pow < power-1; pow++)
+                       self = self.matrixMultiplication(*this);
+                   
+                   return self;
+                  }
+
+               matrix_t operator^(int power){
+                   return pow(power);
+                  }
+  
 
 

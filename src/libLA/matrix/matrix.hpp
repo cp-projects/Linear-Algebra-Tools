@@ -39,7 +39,7 @@ class matrix{
 	 */
 
 	public:
-            #include "tcc/constructors.tcc" //empty, array, initializer list (all stack)
+            #include "tcc/normal/constructors.tcc" //empty, array, initializer list (all stack)
            
                   
 
@@ -55,7 +55,8 @@ class matrix{
             size_t m_row_len, m_col_len;
       
             dbl_arr_t m_result;  
-            bool square_flag = (Rows == Columns);
+	    row_arr_t m_row_result;
+	    col_arr_t m_col_result;
 
 	    
         /*
@@ -64,9 +65,9 @@ class matrix{
 	 * */
 
        public:
-             #include "tcc/getters.tcc"//get_row_len(),Result(),Print()
-             #include "tcc/double_access_get_set.tcc" //[]
-             #include "tcc/universal_setters.tcc" //Random(), Fill()
+             #include "tcc/normal/getters.tcc"//get_row_len(),Result(),Print()
+             #include "tcc/normal/double_access_get_set.tcc" //[]
+             #include "tcc/normal/universal_setters.tcc" //Random(), Fill()
            
 	  
 	     /*
@@ -74,8 +75,8 @@ class matrix{
 	      * Only Defined For Square Matricies
 	      * 
 	      * */
-             #include "tcc/square_setters.tcc" //Identity(), Transpose()
-             #include "tcc/square_math.tcc"  // *, +, -, scale
+             #include "tcc/normal/square_setters.tcc" //Identity(), Transpose()
+             #include "tcc/normal/square_math.tcc"  // *, +, -, scale
 	     
 
 	     /*
@@ -83,7 +84,12 @@ class matrix{
 	      * Only Defined for Non-Square Matricies
 	      *
 	      * */
-             #include "tcc/non_square_math.tcc" //mult,scale
+             #include "tcc/normal/non_square_math.tcc" //mult
+
+
+    public:
+           
+            #include "tcc/row_ops/basic_io.tcc"
 
 
 

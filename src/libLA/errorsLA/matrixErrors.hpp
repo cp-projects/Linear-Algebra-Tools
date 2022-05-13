@@ -45,7 +45,7 @@ struct wrongDimentions : public exception
 
    const char* what() const throw(){
 
-       return "This Method Should Not be Used with Those Dimentions!!!!!!!  (if Pascal try C = 2*R -1)";
+       return "This Method Should Not be Used with Those Dimentions!!!!!!!";
    }
 
 };
@@ -63,6 +63,17 @@ struct notR3 : public exception
    const char* what() const throw(){
 
        return "You Cannot Take a Cross Product Using Vectors Which are not 3 Dimentional!!!!!!";
+   }
+
+};
+
+
+struct out_of_bounds : public exception
+{
+
+   const char* what() const throw(){
+
+       return "A Row or Column involved in this operation is out of bounds of the matrix in question";
    }
 
 };
