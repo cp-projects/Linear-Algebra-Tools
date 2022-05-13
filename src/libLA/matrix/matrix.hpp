@@ -67,7 +67,7 @@ class matrix{
 	 * */    
 
        public:
-            #include "tcc/other.tcc" //(Broken) Other Data structure
+            //#include "tcc/other.tcc" //(Broken) Other Data structure
 
 	    
        	    
