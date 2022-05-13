@@ -90,6 +90,7 @@ class matrix{
     public:
            
             #include "tcc/row_ops/basic_io.tcc"
+            #include "tcc/row_ops/math_operations.tcc"
 
 
 

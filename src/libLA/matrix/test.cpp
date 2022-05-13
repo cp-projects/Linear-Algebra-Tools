@@ -57,6 +57,38 @@ int main(){
 
         std::cout << "\n\n\n\n\n";
 
+	first.scaleRow(1, 2);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	first.scaleColumn(2, 2);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	first.addRows(1, 2);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	first.addColumns(2, 4);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	first.addScaledR(2, 4, 0.5);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	//const double min_one_third = -(1/3);
+	//first.addScaledC(4, 2, min_one_third);
+	first.addScaledC(4, 2, -0.33333333333333333333333333333333333333333333);
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
 	first.Random();
 	first.print();
 
