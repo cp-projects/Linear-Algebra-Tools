@@ -30,6 +30,6 @@
         cap::matrix <numeric_type, Rows, Other_Col> operator*(cap::matrix<numeric_type, Columns, Other_Col> &other){
 	
 	
-	matrixMultiplication(other);
+	return matrixMultiplication(other);
 	
 	}

@@ -1,6 +1,6 @@
 #pragma once
 
-               void matrixMultiplication(matrix_t &other){
+               matrix_t matrixMultiplication(matrix_t &other){
                   if(Rows != Columns || other.m_row_len != other.m_col_len || Rows != other.m_row_len)
                           throw mustBeSquare();
 
@@ -13,25 +13,27 @@
                     m_result[i][j] += temp * other[v][j];
                      }
                     }
+                 return m_result;
                   }
 
-               void operator*(matrix_t &other){
-                   matrixMultiplication(other);
+               matrix_t operator*(matrix_t &other){
+                   return matrixMultiplication(other);
                   }
 
 
 
 
 
-               void matrixAddition(matrix_t &other){
+               matrix_t matrixAddition(matrix_t &other){
                    if(Rows != Columns || other.m_row_len != other.m_col_len || Rows != other.m_row_len)
                           throw mustBeSquare();
                    for(int i = 0; i < Rows; i++)
                        for(int j = 0; j < Columns; j++)
                             m_result[i][j] = m_self_matrix[i][j] + other[i][j];
-                          }
+                   return m_result;       
+	          }
 
-               void operator+(matrix_t &other){
-                   matrixAddition(other);
+               matrix_t operator+(matrix_t &other){
+                   return matrixAddition(other);
                }
 

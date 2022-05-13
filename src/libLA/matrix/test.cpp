@@ -151,7 +151,7 @@ int main(){
 	first.print();
 
 	std::cout << "\n\n\n\n\n";
-
+	
 	first.Transpose();
 	first.print();
 
@@ -160,64 +160,53 @@ int main(){
 	second.Random();
 	second.print();
 
-	first*second;
 	std::cout << "\n\n\n\n\n";
 
-	cap::matrix result = first.Result();
+	cap::matrix result = first*second;
 	result.print();
 
+	std::cout << "\n\n\n\n\n";
+
 	second.Identity();
-	result+second;
-	cap::matrix res2 = result.Result();
+	cap::matrix res2 = result+second;
+	res2.print();
 
 	std::cout << "\n\n\n\n\n";
-	res2.print();
 
 
 	cap::matrix<double, 3,4> test_non_square = {{1,1,1,1},
 			                            {1,1,1,1},
 						    {1,1,1,1}};
-        std::cout << "\n\n\n\n\n";
+        
 	test_non_square.print();
+	
 	std::cout << "\n\n\n\n\n";
  
-	cap::matrix res3 = test_non_square.matrixMultiplication(res2);
-	//cap::matrix res3 = (cap::matrix<double, 4, 4>) test_non_square.Result();
-        
+	cap::matrix res3 = test_non_square*res2;
 	res3.print();
+
 	std::cout << "\n\n\n\n\n";
-
-//      test_non_square.matrixMultiplication(res2);
-	//typename cap::matrix::m_other_t res5 = typename cap::matrix::m_other_t<4>();
-       // test_non_square.m_other_t.print();
-	// res3 = test_non_square.Result(m_other<4> other = m_other_t<4>());
-
-	//std::cout << "\n\n\n\n\n";
-	//res3.print();
-
 
 	cap::matrix resquare = cap::matrix<double, 3,3>();
 	resquare.Identity();
-
-	std::cout << "\n\n\n\n\n";
-	cap::matrix res4 = resquare.matrixMultiplication(test_non_square);
-	//cap::matrix res4 = resquare.Result();
+	cap::matrix res4 = resquare*test_non_square;
 	res4.print();
 
         std::cout << "\n\n\n\n\n";
+
         test_non_square.print();
+
         std::cout << "\n\n\n\n\n";
 
 
 	resquare.Random();
-
-	std::cout << "\n\n\n\n\n";
 	resquare.print();
+
 	std::cout << "\n\n\n\n\n";
 
-        res4 = resquare.matrixMultiplication(test_non_square);
-        std::cout << "\n\n\n\n\n";
+        res4 = resquare*test_non_square;
         res4.print();
+
 	std::cout << "\n\n\n\n\n";
 
 

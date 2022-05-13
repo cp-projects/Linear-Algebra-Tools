@@ -6,7 +6,7 @@
                     Fill(0);
                   }
 
-            matrix(dbl_arr_t initializer)
+            matrix(dbl_arr_t &initializer)
                 : m_row_len(Rows), m_col_len(Columns), m_start_ptr((val_ptr_t)m_self_matrix){
                     for(size_t i = 0; i < Rows; i++){
                         for(size_t j = 0; j < Columns; j++){

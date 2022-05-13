@@ -40,7 +40,7 @@ class matrix{
 
 	public:
             #include "tcc/normal_constructors.tcc" //empty, array, initializer list (all stack)
-           // #include "tcc/other_constuctors.tcc" //(Broken)
+           
                   
 
 	/*
@@ -57,30 +57,14 @@ class matrix{
             dbl_arr_t m_result;  
             bool square_flag = (Rows == Columns);
 
-	    //template<Other_Col>
-            //m_other_t<Other_Col> m_other = m_<Other_Col>();
-
-
-	/*
-	 * Struct Other
-	 *
-	 * */    
-
-       public:
-            //#include "tcc/other.tcc" //(Broken) Other Data structure
-
 	    
-       	    
         /*
 	 * Getters and Setters: Then Math
 	 *
 	 * */
 
        public:
-             #include "tcc/normal_getters.tcc" // get_row_len(), Result(), Print()
-            // #include "tcc/other_getters.tcc" //(broken) Result() Print()
-	    // arguably should only be accessed in other.tcc struct
-
+             #include "tcc/normal_getters.tcc"//get_row_len(),Result(),Print()               
              #include "tcc/double_access_get_set.tcc" //[]
              #include "tcc/universal_setters.tcc" //Random(), Fill()
            
