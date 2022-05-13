@@ -85,7 +85,7 @@ class matrix{
 	      * Only Defined for Non-Square Matricies
 	      *
 	      * */
-             #include "tcc/non_square_math.tcc" //broken * (need to fix other)
+             #include "tcc/non_square_math.tcc" //*
 	     /*
 	      * End
 	      * */
