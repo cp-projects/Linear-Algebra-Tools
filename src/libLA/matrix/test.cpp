@@ -23,7 +23,7 @@ int main(){
 
 
 //	first.get_row_len();
-//
+
 	first.Identity();
 	first.print();
 
@@ -104,7 +104,7 @@ int main(){
 	cap::vector transformed1 = first*row1;
 	transformed1.print();
 
-	std::cout << "\n\n\n\n\n";
+        std::cout << "\n\n\n\n\n";
 	
 	first.Transpose();
 	first.print();
@@ -117,6 +117,13 @@ int main(){
 	std::cout << "\n\n\n\n\n";
 
 	cap::vector transformed2 = second*transformed1;
+        transformed2.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	col1*-1;
+
+	transformed2 = second*col1;
         transformed2.print();
 
         std::cout << "\n\n\n\n\n";
