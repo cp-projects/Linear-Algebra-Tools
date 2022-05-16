@@ -1,5 +1,8 @@
 #pragma once
 
+//The use of the row_vector_t type prevents wrong dimentions
+//Being used.
+
 col_vector_t matrixVectorMultiplication(row_vector_t &vec){
 
     for(int i = 0; i < Rows; i++){

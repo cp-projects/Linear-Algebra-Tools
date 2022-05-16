@@ -118,7 +118,8 @@ row_vector_t addScaledR(int rowIndex1, int rowIndex2, numeric_type scalar){
  return m_row_result;}
 
 
-col_vector_t addScaledC(int colIndex1, int colIndex2, const numeric_type scalar){
+
+col_vector_t addScaledC(int colIndex1, int colIndex2, numeric_type scalar){
 
     col_arr_t tempCol1;
     col_arr_t tempCol2;

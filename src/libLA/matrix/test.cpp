@@ -89,8 +89,12 @@ int main(){
 
         std::cout << "\n\n\n\n\n";
 
-	//const double min_one_third = -(1/3);
-	//first.addScaledC(4, 2, min_one_third);
+	double* min_one_third = (double *)alloca(sizeof(double));
+	*min_one_third = 1/3;
+
+        std::cout << *(min_one_third) << '\n' << std::endl;
+
+	//first.addScaledC(4, 2, *min_one_third);
 	first.addScaledC(4, 2, -0.33333333333333333333333333333333333333333333);
         first.print();
 
