@@ -17,7 +17,7 @@ numeric_type Determinant(){
 	    return determinant2x2(*((cap::matrix<numeric_type,2,2>*) this));
     
 
-    static numeric_type finResult;
+    numeric_type finResult = 0;
     cap::matrix two = cap::matrix<numeric_type, 2, 2>();
     bool firstFlag = true;
     for(int v = 0; v < 3; v++){

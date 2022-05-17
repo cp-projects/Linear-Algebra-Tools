@@ -1,0 +1,14 @@
+#pragma once
+
+
+#define eraseToDebug
+#ifndef eraseToDebug
+#define LOGLEAD(x) std::cout << "Leading Val is " << x << '\n';
+#define LOGSELF() std::cout << "\n\n\n\n"; this->print(); std::cout << "\n\n\n\n";
+#define LOGVEC(x) x.print(); std::cout << "\n\n\n\n";
+#else
+#define LOGLEAD(X)
+#define LOGSELF()
+#define LOGVEC(x)
+#endif
+

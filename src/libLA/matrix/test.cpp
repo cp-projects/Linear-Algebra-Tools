@@ -95,7 +95,15 @@ int main(){
 
         std::cout << "\n\n\n\n\n";
 
-	first.gauss();
+	//double test_det3 = first.Determinant();
+
+        //first.invert();
+
+        //std::cout << "\n\n\n\n\n";
+        //std::cout << test_det3 << std::endl;
+	//std::cout << "\n\n\n\n\n";
+
+	first.rref();
 	first.print();
 
 	std::cout << "\n\n\n\n\n";
@@ -137,8 +145,6 @@ int main(){
 
 	std::cout << "\n\n\n\n\n";
 
-	//second.extractRow
-
 	second.Identity();
 	cap::matrix res2 = result+second;
 	res2.print();
@@ -148,10 +154,18 @@ int main(){
 	cap::matrix res2AndAHalf = second-res2;
 	res2AndAHalf.print();
 
-	res2AndAHalf.gauss();
-        res2AndAHalf.print();
+	//double test_det3 = res2AndAHalf.Determinant();
 
-        std::cout << "\n\n\n\n\n";
+	//cap::matrix invert2AndAHalf = res2AndAHalf.invert();
+	
+	//std::cout << "\n\n\n\n\n";
+	
+	//std::cout << test_det3 << std::endl;
+
+	std::cout << "\n\n\n\n\n";
+
+	res2AndAHalf.rref();
+        res2AndAHalf.print();
 
 	std::cout << "\n\n\n\n\n";
 
@@ -163,16 +177,17 @@ int main(){
 	test_non_square*0.5;
 
 	//double test_ns_det = test_non_square.Determinant();
+	//test_non_square.invert();
 	
 	std::cout << "\n\n\n\n\n";
  
 	cap::matrix res3 = test_non_square*res2;
 	res3.print();
 
-	std::cout << "\n\n\n\n\n";
+	//std::cout << "\n\n\n\n\n";
 
-	res3.print_dimentions();
-	res3.gauss();
+	//res3.print_dimentions();
+	res3.rref();
 
 	std::cout << "\n\n\n\n\n";
         res3.print();
@@ -190,11 +205,15 @@ int main(){
 
         std::cout << "\n\n\n\n\n";
 
-
 	resquare.Random();
 	resquare.print();
 
 	std::cout << "\n\n\n\n\n";
+
+	cap::matrix inv_resq = resquare.invert();
+        inv_resq.print();
+
+        std::cout << "\n\n\n\n\n";
 
         res4 = resquare*test_non_square;
         res4.print();
@@ -223,15 +242,19 @@ int main(){
 
         std::cout << "\n\n\n\n\n";
 
+	cap::matrix invert_res6 = res6.invert();
+	invert_res6.print();
+
+	std::cout << "\n\n\n\n\n";
+
 
 	cap::matrix<double,2,2> test_det = {{1, 0},
                                            {24, 2}};
 
-	test_det.gauss();
+	cap::matrix inverse_test_det = test_det.invert();
 
-	test_det.print();
+	inverse_test_det.print();
 
-	//test_det.gauss();
 
 	std::cout << "\n\n\n\n\n";
 

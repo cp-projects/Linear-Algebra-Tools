@@ -51,7 +51,15 @@ struct wrongDimentions : public exception
 };
 
 
+struct mustBeLinearlyIndependent : public exception
+{
 
+   const char* what() const throw(){
+       
+       return "This method is undifined for matricies whose row and/or column vectors have some linear dependence";
+   }
+
+};
 
 
 //custom exception for attempts to take

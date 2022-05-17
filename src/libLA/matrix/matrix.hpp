@@ -122,9 +122,25 @@ class matrix{
 
              #include "tcc/det/determinant.tcc"
 
+      /*
+       *  Elimination
+       *
+       * */
+
       public:
 
              #include "tcc/elimination/elimination.tcc"
+
+
+       /*
+	*
+	* Invert
+	*
+	* */
+
+	public:
+	    
+	     #include "tcc/invert/invert.tcc"
 
 
 
