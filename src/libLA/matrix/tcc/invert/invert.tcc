@@ -43,8 +43,12 @@ matrix_t invert(){
 
            numeric_type leading_val = m_self_matrix[leading_row][leading_col];            
 
-           if(leading_val == 0)
-               return result;
+           //if(leading_val == 0)
+              // return result;
+
+	   //if(leading_val > 100)
+	      // leading_val/=1000;
+
 
            row_vector_t one = extractRow(leading_row+1);
 	   row_vector_t resOne = result.extractRow(leading_row+1);

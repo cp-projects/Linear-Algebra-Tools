@@ -279,6 +279,13 @@ int main(){
 
         std::cout << "\n\n\n\n\n";
 
+	
+	cap::matrix invert_test_det2 = test_det2.invert();
+        invert_test_det2.print();
+
+	std::cout << "\n\n\n\n\n";
+
+
 
 
 
