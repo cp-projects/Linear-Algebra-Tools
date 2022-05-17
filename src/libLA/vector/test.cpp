@@ -10,6 +10,11 @@ int main(){
     vec0.fill(12);
     vec0.print();
 
+    cap::vector vec12({12.0,12.0,12.0,12.1,12.0});
+    bool test_flag = (vec0==vec12);
+    
+    std::cout << "Vec0 == vec12 " << test_flag << '\n';
+
     cap::vector vec1({1.1,2.2,3.3,4.4,5.5});
     vec1.print();
 

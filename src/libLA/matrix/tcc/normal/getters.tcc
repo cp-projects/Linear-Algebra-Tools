@@ -1,9 +1,22 @@
 #pragma once
 
 //retreiving values
-            void get_row_len(){
+            numeric_type get_row_len(){
                 std::cout << Rows;
+		return Rows;
                }
+
+            numeric_type get_col_len(){
+	        std::cout << Columns;
+		return Columns;
+	       }
+
+            void print_dimentions(){
+	        std::cout << "Rows: " << Rows << " ";
+		std::cout  << "Columns: " << Columns << std::endl;
+	      }
+
+            
 
             matrix_t Result(){
                  return matrix(m_result);

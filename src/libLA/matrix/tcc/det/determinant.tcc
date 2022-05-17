@@ -1,5 +1,4 @@
 #pragma once
-//#include "../../../errorsLA/matrixErrors.hpp"
 
 
 numeric_type determinant2x2(cap::matrix<numeric_type,2,2> &matrix2x2){

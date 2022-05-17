@@ -110,6 +110,32 @@ class vector{
                return dimention;
               }
 
+	   //comparisons
+
+	   bool checkEqual(vector_t &other){
+	       bool equal_flag = true;
+	       for(size_t i = 0; i < dimention; i++)
+	           if(m_self_vector[i] != other[i])
+		       equal_flag = false;
+	       return equal_flag;
+	      }
+
+	   bool operator==(vector_t &other){
+	       return checkEqual(other);
+	      }
+
+	   bool checkNotEqual(vector_t &other){
+               bool equal_flag = false;
+               for(size_t i = 0; i < dimention; i++)
+                   if(m_self_vector[i] != other[i])
+                       equal_flag = true;
+               return equal_flag;
+              }
+
+           bool operator!=(vector_t &other){
+               return checkNotEqual(other);
+              }
+
 	   //math
 	   constexpr numeric_type dot(vector_t &other){
 	       m_dot_product= 0;

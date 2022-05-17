@@ -15,11 +15,11 @@ class matrix{
 	 * */
 
 	private:
-	    typedef numeric_type row_arr_t[Rows];
-            typedef cap::vector<numeric_type, Rows> row_vector_t;
+	    typedef numeric_type row_arr_t[Columns];
+            typedef cap::vector<numeric_type, Columns> row_vector_t;
 
-	    typedef numeric_type col_arr_t[Columns];
-	    typedef cap::vector<numeric_type, Columns> col_vector_t;
+	    typedef numeric_type col_arr_t[Rows];
+	    typedef cap::vector<numeric_type, Rows> col_vector_t;
 
 
 	    typedef numeric_type dbl_arr_t[Rows][Columns];
@@ -68,6 +68,7 @@ class matrix{
              #include "tcc/normal/getters.tcc"//get_row_len(),Result(),Print()
              #include "tcc/normal/double_access_get_set.tcc" //[]
              #include "tcc/normal/universal_setters.tcc" //Random(), Fill()
+             #include "tcc/normal/cleaners.tcc"
            
 	  
 	     /*
@@ -113,13 +114,17 @@ class matrix{
 
      /*
       *
-      * Determinant and Inverse
+      * Determinant
       *
       * */
       
       public:
 
-             #include "tcc/det_inverse/determinant.tcc"
+             #include "tcc/det/determinant.tcc"
+
+      public:
+
+             #include "tcc/elimination/elimination.tcc"
 
 
 

@@ -95,6 +95,11 @@ int main(){
 
         std::cout << "\n\n\n\n\n";
 
+	first.gauss();
+	first.print();
+
+	std::cout << "\n\n\n\n\n";
+
 	first.Random();
 	first.print();
 
@@ -143,6 +148,11 @@ int main(){
 	cap::matrix res2AndAHalf = second-res2;
 	res2AndAHalf.print();
 
+	res2AndAHalf.gauss();
+        res2AndAHalf.print();
+
+        std::cout << "\n\n\n\n\n";
+
 	std::cout << "\n\n\n\n\n";
 
 	cap::matrix<double, 3,4> test_non_square = {{1,1,1,1},
@@ -160,6 +170,14 @@ int main(){
 	res3.print();
 
 	std::cout << "\n\n\n\n\n";
+
+	res3.print_dimentions();
+	res3.gauss();
+
+	std::cout << "\n\n\n\n\n";
+        res3.print();
+
+        std::cout << "\n\n\n\n\n";
 
 	cap::matrix resquare = cap::matrix<double, 3,3>();
 	resquare.Identity();
@@ -192,6 +210,8 @@ int main(){
 		                               {0,2,0},
 				               {0,0,3}};
 
+        //test_pow.gauss();
+
         cap::matrix res6 = test_pow^4;
 	res6.print();
 
@@ -207,7 +227,11 @@ int main(){
 	cap::matrix<double,2,2> test_det = {{1, 0},
                                            {24, 2}};
 
+	test_det.gauss();
+
 	test_det.print();
+
+	//test_det.gauss();
 
 	std::cout << "\n\n\n\n\n";
 
