@@ -88,14 +88,9 @@ int main(){
         first.print();
 
         std::cout << "\n\n\n\n\n";
-
-	double* min_one_third = (double *)alloca(sizeof(double));
-	*min_one_third = 1/3;
-
-        std::cout << *(min_one_third) << '\n' << std::endl;
-
-	//first.addScaledC(4, 2, *min_one_third);
-	first.addScaledC(4, 2, -0.33333333333333333333333333333333333333333333);
+	
+	double min_one_third = -1.0/3.0;
+	first.addScaledC(4, 2, min_one_third);
         first.print();
 
         std::cout << "\n\n\n\n\n";
@@ -156,6 +151,8 @@ int main(){
         test_non_square*2; 
 	test_non_square.print();
 	test_non_square*0.5;
+
+	//double test_ns_det = test_non_square.Determinant();
 	
 	std::cout << "\n\n\n\n\n";
  
@@ -195,8 +192,8 @@ int main(){
 		                               {0,2,0},
 				               {0,0,3}};
 
-         cap::matrix res6 = test_pow^4;
-	 res6.print();
+        cap::matrix res6 = test_pow^4;
+	res6.print();
 
 	/*cap::matrix res6 = test_pow;
 	res6 = res6*test_pow;
@@ -204,7 +201,36 @@ int main(){
         res6 = res6*test_pow;
 	res6.print();*/
 
+        std::cout << "\n\n\n\n\n";
+
+
+	cap::matrix<double,2,2> test_det = {{1, 0},
+                                           {24, 2}};
+
+	test_det.print();
+
 	std::cout << "\n\n\n\n\n";
+
+	double det_val1 = test_det.Determinant();
+
+	std::cout << det_val1 << std::endl;
+
+	std::cout << "\n\n\n\n\n";
+
+
+	cap::matrix<double,3,3> test_det2 = {{1, 0, 54},
+		                            {24, 2, -7},
+                                           {3.4, 2.7, 5.5}};
+
+        test_det2.print();
+
+        std::cout << "\n\n\n\n\n";
+
+        double det_val2 = test_det2.Determinant();
+
+        std::cout << det_val2 << std::endl;
+
+        std::cout << "\n\n\n\n\n";
 
 
 

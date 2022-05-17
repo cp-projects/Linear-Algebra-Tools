@@ -111,30 +111,20 @@ class matrix{
 	     #include "tcc/matrix_vector/matrix_vector.tcc"
 
 
+     /*
+      *
+      * Determinant and Inverse
+      *
+      * */
+      
+      public:
+
+             #include "tcc/det_inverse/determinant.tcc"
+
+
 
      };//end class
 
   }//end namespace
 
 
-/*
-
-
-template<int R, int C>
-void clearMatrix(double(&clear)[R][C]);
-
-template<unsigned R, unsigned C>
-void transpose(double (&original)[R][C], double (&transposed)[C][R]);
-  for(int i = 0; i < R; i++){
-         for(int j = 0; j < C; j++){
-             transposed[j][i] = original[i][j];}
-
-template<int N>
-void matrixMultiplication(double (&matrixOne)[N][N], double (&matrixTwo)[N][N], double (&result)[N][N]);
-
-template<int M, int N, int P>
-void matrixMultiplication(double (&matrixOne)[M][N], double (&matrixTwo)[N][P], double (&result)[M][P]);
-
-template<int N>
-void matrixAddition(double (&matrixOne)[N][N], double (&matrixTwo)[N][N], double (&result)[N][N]);
-*/
