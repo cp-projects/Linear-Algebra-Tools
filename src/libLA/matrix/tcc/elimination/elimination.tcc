@@ -23,7 +23,7 @@ void rref(){
 	          }
 
            if(leading_val != 1)
-	       scaleRow(leading_row+1, 1/leading_val);
+	       scaleRow(leading_row+1, 1.0/leading_val);
 
            if(i != leading_row && m_self_matrix[i][leading_col] != 0)
 	       addScaledR(leading_row+1, i+1 , -m_self_matrix[i][leading_col]);

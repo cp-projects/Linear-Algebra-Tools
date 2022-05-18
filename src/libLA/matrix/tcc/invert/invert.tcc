@@ -34,7 +34,7 @@ matrix_t invert(){
             return this->invert2x2();
 
 
-    static matrix_t result;
+    matrix_t result;
     result.Identity();
 
     int leading_col = 0;
