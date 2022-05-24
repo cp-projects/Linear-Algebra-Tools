@@ -1,8 +1,8 @@
 #pragma once
 
 #include<iostream>
-#include<array>
 #include<stdlib.h>
+#include<math.h>
 
 #include"../errorsLA/matrixErrors.hpp"
 
@@ -110,6 +110,13 @@ class vector{
                return dimention;
               }
 
+	   numeric_type magnitude(){
+	       numeric_type sum = (numeric_type) 0;
+	       for(size_t i = 0; i < dimention; i++)
+	           sum += std::pow(m_self_vector[i],2);
+	       return std::sqrt(sum);      
+	      }
+
 	   //comparisons
 
 	   bool checkEqual(vector_t &other){
@@ -156,6 +163,16 @@ class vector{
 	   constexpr void operator*(numeric_type scaler){
 	       scale(scaler);
 	      }
+
+	   constexpr void scaleDiv(numeric_type scaler){
+               for(int i = 0; i < dimention; i++)
+                   m_self_vector[i] /= scaler;
+                  }
+
+           constexpr void operator/(numeric_type scaler){
+               scaleDiv(scaler);
+              }
+
 
 	   constexpr void addInto(vector_t &other){
                for(size_t i = 0; i < dimention; i++)

@@ -5,10 +5,16 @@ int main(){
 
     cap::vector vec0 = cap::vector<double, 5>();
     vec0.print();
+    double mag = vec0.magnitude();
+    std::cout << mag << '\n';
     vec0.random();
     vec0.print();
+    mag = vec0.magnitude();
+    std::cout << mag << '\n';
     vec0.fill(12);
     vec0.print();
+    mag = vec0.magnitude();
+    std::cout << mag << '\n';
 
     cap::vector vec12({12.0,12.0,12.0,12.1,12.0});
     bool test_flag = (vec0==vec12);
@@ -17,9 +23,13 @@ int main(){
 
     cap::vector vec1({1.1,2.2,3.3,4.4,5.5});
     vec1.print();
+    mag = vec1.magnitude();
+    std::cout << mag << '\n';
 
     vec0.random();
     vec0.print();
+    mag = vec0.magnitude();
+    std::cout << mag << '\n';
 
     double dot0 = vec0.dot(vec1);
     double dot1 = vec1*vec0;
@@ -27,6 +37,8 @@ int main(){
 
     vec1.scale(2.0);
     vec1.print();
+    mag = vec1.magnitude();
+    std::cout << mag << '\n';
 
     vec1*0.5;
     vec1.print();

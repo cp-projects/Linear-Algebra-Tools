@@ -286,6 +286,30 @@ int main(){
 	std::cout << "\n\n\n\n\n";
 
 
+	test_det2.Random();
+        test_det2.print();
+
+	std::cout << "\n\n\n\n\n";
+
+	test_det2.QR();
+
+	test_det2.my_two_factor->left->print();
+	std::cout << "\n\n\n\n\n";
+	test_det2.my_two_factor->right->print();
+	std::cout << "\n\n\n\n\n";
+
+
+	cap::matrix QR_Test = *(test_det2.my_two_factor->left) * *(test_det2.my_two_factor->right);
+
+	QR_Test.print();
+	std::cout << "\n\n\n\n\n";
+
+
+        delete test_det2.my_two_factor->left;
+	delete test_det2.my_two_factor->right;
+	delete test_det2.my_two_factor;
+
+
 
 
 

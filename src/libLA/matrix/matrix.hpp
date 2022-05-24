@@ -32,6 +32,12 @@ class matrix{
 	    typedef typename dbl_init_t::iterator dbl_init_Iterator;
 	    typedef typename init_t::iterator init_Iterator;
 
+	    typedef struct twoFactor{
+
+              matrix_t *left, *right;
+
+            }twoFactor_t;
+
        
         /*
 	 * Constructors/Destructors
@@ -57,6 +63,10 @@ class matrix{
             dbl_arr_t m_result;  
 	    row_arr_t m_row_result;
 	    col_arr_t m_col_result;
+
+       public:
+
+            twoFactor_t* my_two_factor;
 
 	    
         /*
@@ -142,6 +152,15 @@ class matrix{
 	    
 	     #include "tcc/invert/invert.tcc"
 
+
+        /*
+	 *
+	 * Factorizations
+	 *
+	 * */
+
+	 public:
+             #include "tcc/factorizations/QR.tcc"
 
 
      };//end class
