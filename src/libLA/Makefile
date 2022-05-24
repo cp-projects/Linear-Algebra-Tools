@@ -1,4 +1,4 @@
-SUBDIRS = printLA/ errorsLA/ myArithmetic/ single_matrix_opps/ row_ops/ matrix/ vector/ matrix_vector/ determinant/ elemination/ #numerical_estimation/
+SUBDIRS = errorsLA/ matrix/ vector/  #numerical_estimation/
 
 subdirs:
 	for dir in $(SUBDIRS); do \

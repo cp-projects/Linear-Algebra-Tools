@@ -91,7 +91,7 @@ int main(){
 
 
 
-	//std::cout << determinant(result) << '\n';
+	std::cout << determinant(result) << '\n';
 
 
 	double testVector[4];
@@ -112,7 +112,7 @@ int main(){
 	int size = sizeof(testVector)/sizeof(testVector[0]);	
 	double dotProduct = dot(testVector, testVectorTwo, size);
 	
-	//std::cout << '\n' << '\n' << dotProduct << '\n';
+	std::cout << '\n' << '\n' << dotProduct << '\n';
 
 	std::cout << '\n';
 

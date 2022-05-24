@@ -232,7 +232,7 @@ class vector{
                         matrix[1][0] = other[1];
                         matrix[1][1] = other[2];
                         indexZero = det(matrix);
-			m_result[i] = indexZero;
+			m_result[0] = indexZero;
                         break;
 
                 case 1:
@@ -240,8 +240,8 @@ class vector{
                         matrix[0][1] = m_self_vector[2];
                         matrix[1][0] = other[0];
                         matrix[1][1] = other[2];
-                        indexOne = -det(matrix) ? det(matrix) != 0 : 0;
-			m_result[i] = indexOne;
+                        indexOne = (det(matrix) != 0) ? -det(matrix) : 0;
+			m_result[1] = indexOne;
                         break;
 
                 case 2:
@@ -250,7 +250,7 @@ class vector{
                         matrix[1][0] = other[0];
                         matrix[1][1] = other[1];
                         indexTwo = det(matrix);
-			m_result[i] = indexTwo;
+			m_result[2] = indexTwo;
                         break;
                                }; //end switch     
                      }//end for loop

@@ -1,3 +1,14 @@
+test:
+	[ -f test.out ] && rm testHeaders.out || echo "404 file not found"
+	[ -f test.o ] && rm testHeaders.o || echo "404 file not found"
+	make cleanSub
+	make subdirs
+	make testHeaders.o
+	make testHeaders.out
+	valgrind ./testHeaders.out
+
+
+
 testHeaders.out: testHeaders.o
 	g++ -o testHeaders.out testHeaders.o
 
