@@ -7,8 +7,8 @@ void QR(){
    if(Rows != Columns)
 	   throw mustBeSquare();
 
-   if(this->Determinant() == 0)
-	   throw mustBeLinearlyIndependent();
+   //if(this->Determinant() == 0)
+	   //throw mustBeLinearlyIndependent();
 
    my_two_factor = new twoFactor_t;
 
@@ -28,12 +28,12 @@ void QR(){
        
        for(int j = 0; j < i; j++){
 
-	       std::cout << " (" << i+1 << ',' << j+1 << ')' << '\n';
+	       //std::cout << " (" << i+1 << ',' << j+1 << ')' << '\n';
 	       col_vector_t qi = Q.extractColumn(j+1);
 	       //qi.print(); std::cout << "\n\n\n\n";
 
                const numeric_type scalar_dot = ai_orth*q1;
-	       std::cout << scalar_dot << "\n\n";
+	       //std::cout << scalar_dot << "\n\n";
 	       R[j][i] = scalar_dot;
                ai_orth -= {scalar_dot,q1};
               }

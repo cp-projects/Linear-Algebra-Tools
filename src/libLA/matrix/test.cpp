@@ -309,6 +309,24 @@ int main(){
 	delete test_det2.my_two_factor->right;
 	delete test_det2.my_two_factor;
 
+	cap::matrix<double, 4, 4> symmetric = {
+	                                        {1,2,-1,5},
+						{2,1,3, 0},
+					        {-1,3,0,4},
+						{5, 0,4,2}
+	                                                   };
+
+        symmetric.print();
+	std::cout << "\n\n\n\n\n";
+
+	cap::vector<double, 4>* eigen = symmetric.eig_vals();
+	
+        eigen->print();
+
+	std::cout << "\n\n\n\n\n";
+
+	delete eigen;
+
 
 
 

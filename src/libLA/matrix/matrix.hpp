@@ -163,6 +163,15 @@ class matrix{
              #include "tcc/factorizations/QR.tcc"
 
 
+	 /*
+	  * Eigen-Stuff
+	  *
+	  * */
+
+	  public:
+              #include "tcc/eigen/eigen.tcc"
+
+
      };//end class
 
   }//end namespace
