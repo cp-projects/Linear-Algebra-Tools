@@ -327,7 +327,51 @@ int main(){
 
 	delete eigen;
 
+	double PI = 3.14159265;
 
+        cap::matrix<double, 3, 3> A_giv = {
+		                            {6,5,0},
+	                                    {5,1,4},
+	                                    {0,4,3}
+	                                           };
+
+        A_giv.print();
+	std::cout << "\n\n\n\n\n";
+
+	A_giv = A_giv.Givens(2,1);
+	A_giv.print();
+        std::cout << "\n\n\n\n\n";
+
+	A_giv.Givens(3,1);
+
+	
+	//A_giv.Hessenberg();
+
+	A_giv.print();
+	
+
+        std::cout << "\n\n\n\n\n";
+
+//	symmetric.Hessenberg();
+//	symmetric.print();
+
+       // symmetric = symmetric.Givens(3,1);
+//	symmetric.print();
+//	std::cout << "\n\n\n\n\n";
+
+//	symmetric = symmetric.Givens(4,1);
+//	symmetric.print();
+//	std::cout << "\n\n\n\n\n";
+
+//	symmetric = symmetric.Givens(4,2);
+//	symmetric.print();
+//	std::cout << "\n\n\n\n\n";
+
+
+
+	//symmetric = symmetric.Givens(2,1);
+	//symmetric = symmetric.Givens(3,1);
+        //symmetric = symmetric.Givens(4,1);
 
 
 

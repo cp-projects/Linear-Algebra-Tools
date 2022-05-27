@@ -1,7 +1,12 @@
 #pragma once
 
+#include<vector>
+#include<utility>
+
 #include "../vector/vector.hpp"
 #include "../errorsLA/matrixErrors.hpp"
+
+
 
 
 namespace cap{
@@ -38,6 +43,8 @@ class matrix{
 
             }twoFactor_t;
 
+	    typedef typename std::vector<std::pair<int,int>> index_pair_list_t;
+
        
         /*
 	 * Constructors/Destructors
@@ -58,11 +65,15 @@ class matrix{
        private:
             numeric_type m_self_matrix[Rows][Columns];
             val_ptr_t m_start_ptr;
+            //matrix_t m_self = *(this);
+
             size_t m_row_len, m_col_len;
       
             dbl_arr_t m_result;  
 	    row_arr_t m_row_result;
 	    col_arr_t m_col_result;
+
+	    index_pair_list_t m_old_givens = std::vector<std::pair<int,int>>();
 
        public:
 

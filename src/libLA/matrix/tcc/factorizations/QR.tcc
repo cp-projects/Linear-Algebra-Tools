@@ -1,7 +1,113 @@
 #pragma once
 
+matrix_t Givens(int p, int q){
 
-//twoFactor_t*
+   p--;
+   q--;
+
+   if(m_self_matrix[p][q] == 0)
+      return *(this);
+
+   std::cout << "(" << p+1 << " , " << q+1 << ")" << '\n';
+
+   numeric_type a = m_self_matrix[q][q];
+   std::cout << "\n\n\n" << a << "\n\n\n";
+
+   numeric_type b = m_self_matrix[p][q];
+   std::cout << "\n\n\n" << b << "\n\n\n";
+
+   cap::vector col = cap::vector<numeric_type, 2>({a,b});
+   numeric_type r = col.magnitude();
+   std::cout << "\n\n\n" << r << "\n\n\n";
+
+   numeric_type c,s,t;
+   if(b == 0){
+       c = 1;
+       s = 0;
+   }
+
+   else if(std::abs(b) > std::abs(a)){
+       t = a/b;
+       s = 1.0/(std::sqrt(1.0 + std::pow(r,2)));
+       c = s*t;
+   }
+
+   else{
+   
+       t = b/a;
+       c = 1.0/(std::sqrt(1.0 + std::pow(r,2)));
+       s = c*t;
+   }
+
+
+   
+   std::cout << "\n\n\n" << "R = " << r << "\n\n\n";
+
+   //numeric_type c  = a/r;
+   std::cout << "\n\n\n" << "C = " << c << "\n\n\n";
+
+  // numeric_type s  = -b/r;
+   std::cout << "\n\n\n" << "S = " << s << "\n\n\n";
+   
+   matrix_t G = cap::matrix<numeric_type, Rows, Columns>();
+
+   G.Identity();
+
+   G[p][p] = c;
+   G[q][q] = c;
+
+   G[p][q] = s;
+   G[q][p] = -s;
+
+   //std::cout << "\n\n\n";
+   //G.print();
+   //std::cout << "\n\n\n";
+
+   matrix_t temp = G;
+   temp.Transpose();
+
+   //std::cout << "\n\n\n";
+   //temp.print();
+   //std::cout << "\n\n\n";
+
+
+   //temp = this->matrixMultiplication(temp);
+   G = G * *(this);
+
+   //G = G * temp;
+
+  // G[p][q] = 0;
+
+   m_old_givens.emplace_back(p,q);
+   
+   // for(int i = 0; i < m_old_givens.size(); i++)
+           //G[m_old_givens.at(i).first, m_old_givens.at(i).second] = 0;
+
+   std::cout << "\n\n\n";
+   G.print();
+   std::cout << "\n\n\n";
+
+   
+
+   return G;
+
+}
+
+
+void Hessenberg(){
+    //matrix_t temp = *(this);
+    //matrix_t temp = cap::matrix<numeric_type, Rows, Columns>();
+    for(int i = 1; i <= Rows; i++)
+        for(int j = 1; j <= Columns; j++)
+	    if(i > j+1){
+	        *(this) = this->Givens(i,j);
+		//std::cout << "(" << i << " , " << j << ")" << '\n';
+	      }
+   // *(this) = temp;
+  }
+
+
+
 void QR(){
 
    if(Rows != Columns)
@@ -9,6 +115,8 @@ void QR(){
 
    //if(this->Determinant() == 0)
 	   //throw mustBeLinearlyIndependent();
+	   
+   //this->Hessenberg();
 
    my_two_factor = new twoFactor_t;
 
@@ -56,8 +164,6 @@ void QR(){
 
    *(my_two_factor->left) = Q;
    *(my_two_factor->right) = R;
-
-   //return my_two_factor;
 
 }
 
