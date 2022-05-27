@@ -20,6 +20,7 @@ matrix_t Givens(int p, int q){
    numeric_type r = col.magnitude();
    std::cout << "\n\n\n" << r << "\n\n\n";
 
+   /*
    numeric_type c,s,t;
    if(b == 0){
        c = 1;
@@ -37,16 +38,16 @@ matrix_t Givens(int p, int q){
        t = b/a;
        c = 1.0/(std::sqrt(1.0 + std::pow(r,2)));
        s = c*t;
-   }
+   }*/
 
 
    
    std::cout << "\n\n\n" << "R = " << r << "\n\n\n";
 
-   //numeric_type c  = a/r;
+   numeric_type c  = a/r;
    std::cout << "\n\n\n" << "C = " << c << "\n\n\n";
 
-  // numeric_type s  = -b/r;
+   numeric_type s  = -b/r;
    std::cout << "\n\n\n" << "S = " << s << "\n\n\n";
    
    matrix_t G = cap::matrix<numeric_type, Rows, Columns>();
@@ -100,7 +101,7 @@ void Hessenberg(){
     for(int i = 1; i <= Rows; i++)
         for(int j = 1; j <= Columns; j++)
 	    if(i > j+1){
-	        *(this) = this->Givens(i,j);
+	        //*(this) = this->Givens(i,j);
 		//std::cout << "(" << i << " , " << j << ")" << '\n';
 	      }
    // *(this) = temp;
