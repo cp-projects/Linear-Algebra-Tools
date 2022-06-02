@@ -1,35 +1,9 @@
 #pragma once
 
 #define erase_debug_Givens
-#ifndef erase_debug_Givens
-#define LOG1() std::cout << "(" << p+1 << " , " << q+1 << ")" << '\n';
-#define LOG2(x) std::cout << "\n\n\n" << x << "\n\n\n";
-#define LOG3(x,y) std::cout << "\n\n\n" << x << y << "\n\n\n";
-#define LOG4(x) std::cout << "\n\n\n"; x.print(); std::cout << "\n\n\n";
-#else
-#define LOG1()
-#define LOG2(x)
-#define LOG3(x,y)
-#define LOG4(x)
-#endif
-
 #define erase_debug_Hess
-#ifndef erase_debug_Hess
-#define LOG5() std::cout << "(" << i << " , " << j << ")" << '\n';
-#else
-#define LOG5()
-#endif
-
 #define erase_debug_QR
-#ifndef erase_debug_QR
-#define LOG6() std::cout << " (" << i+1 << ',' << j+1 << ')' << '\n';
-#define LOG7(x) x.print(); std::cout << "\n\n\n\n";
-#define LOG8(x) std::cout << x << "\n\n";
-#else
-#define LOG6()
-#define LOG7(x)
-#define LOG8(x)
-#endif
+#include "QR.mac"
 
 matrix_t Givens(int p, int q){
 
@@ -98,8 +72,8 @@ void QR(){
    //if(this->Determinant() == 0)
 	   //throw mustBeLinearlyIndependent();
 	   
-   this->Hessenberg();
-   this->Round();
+   
+   //this->Round();
 
    my_two_factor = new twoFactor_t;
 

@@ -1,9 +1,68 @@
 #include <iostream>
 #include "matrix.hpp"
 
+
+bool testQR(){
+
+   cap::matrix A0 = cap::matrix<double,10,10>();
+
+   bool passing_flag = true;
+   for(int i = 0; i < 10; i++){
+   
+	A0.Random();
+//	cap::matrix save = A0;
+//	std::cout << " A \n";
+//	A0.print();
+//	std::cout << "\n\n\n\n\n";
+
+       
+        A0.QR();
+
+       // std::cout << "\n Q \n";
+       // A0.my_two_factor->left->print();
+       // std::cout << "\n\n\n\n\n";
+       // std::cout << "\n R \n";
+       // A0.my_two_factor->right->print();
+       // std::cout << "\n\n\n\n\n";
+
+
+        cap::matrix QR_Test = *(A0.my_two_factor->left) * *(A0.my_two_factor->right);
+        QR_Test.Round();
+
+        //std::cout << "\n QR = A \n";
+        //QR_Test.print();
+        //std::cout << "\n\n\n\n\n";
+
+	if(QR_Test == A0){
+                std::cout << "Failed on QR_Test\n";
+		QR_Test.print();
+		std::cout << "\n\n\n\n\n";
+		std::cout << "And QR = A\n";
+		A0.print();
+		std::cout << "\n\n\n\n\n";
+
+		passing_flag = false;
+	}
+
+
+        delete A0.my_two_factor->left;
+        delete A0.my_two_factor->right;
+        delete A0.my_two_factor;
+   
+      }
+
+return passing_flag;
+}
+
+
+
+
 int main(){
 
-	
+        bool boolResult = testQR();	
+	std::cout << boolResult << '\n';
+
+/*
 
         cap::matrix test_constructor = cap::matrix<double, 2,2> ({{1.0,1.0},{1.0,1.0}});
 	test_constructor.print();
@@ -256,11 +315,11 @@ int main(){
         cap::matrix res6 = test_pow^4;
 	res6.print();
 
-	/*cap::matrix res6 = test_pow;
+	/cap::matrix res6 = test_pow;
 	res6 = res6*test_pow;
 	res6 = res6*test_pow;
         res6 = res6*test_pow;
-	res6.print();*/
+	res6.print();/
 
         std::cout << "\n\n\n\n\n";
 
@@ -342,8 +401,8 @@ int main(){
 						{5, 0,4,2}
 	                                                   };
 
-	symmetric.Hessenberg();
-        symmetric.print();
+//	symmetric.Hessenberg();
+ //       symmetric.print();
 	std::cout << "\n\n\n\n\n";
 
 	cap::vector<double, 4>* eigen = symmetric.eig_vals();
@@ -405,6 +464,6 @@ int main(){
         //symmetric = symmetric.Givens(4,1);
 
 
-
+*/
 return 0;
 }

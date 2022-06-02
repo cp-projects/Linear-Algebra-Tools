@@ -87,7 +87,7 @@ class matrix{
 
        public:
              #include "tcc/normal/getters.tcc"//get_row_len(),Result(),Print()
-             #include "tcc/normal/double_access_get_set.tcc" //[]
+             #include "tcc/normal/operators.tcc" //[], ==, !=
              #include "tcc/normal/universal_setters.tcc" //Random(), Fill()
              #include "tcc/normal/cleaners.tcc"
            
