@@ -105,3 +105,89 @@ matrix_t swapRows(int rowIndex1, int rowIndex2){
                     swapped[i][j] = tempCol1[i];
                   }
  return swapped;}
+
+
+
+col_vector_t extractDiagonal(){
+
+        for(int i = 0; i < Rows; i++)
+            for(int j = 0; j < Columns; j++)
+                if(i == j)
+                        m_col_result[j] = m_self_matrix[i][j];
+
+        return m_col_result;
+      }
+
+
+
+void replaceDiagonal(col_vector_t &insertVector){
+
+        for(int i = 0; i < Rows; i++)
+            for(int j = 0; j < Columns; j++)
+                if(i == j)
+                    m_self_matrix[i][j] = insertVector[j];
+                  }
+
+
+col_vector_t extractOffDiagonal(){
+
+        for(int i = 0; i < Rows; i++)
+            for(int j = 0; j < Columns; j++)
+                if((i+j) == (Rows-1))
+                        m_col_result[i] = m_self_matrix[i][j];
+
+        return m_col_result;
+      }
+
+
+
+void replaceOffDiagonal(col_vector_t &insertVector){
+
+        for(int i = 0; i < Rows; i++)
+            for(int j = 0; j < Columns; j++)
+                if((i+j) == (Rows-1))
+                    m_self_matrix[i][j] = insertVector[i];
+                  }
+
+
+/*
+col_vector_t extractDiagonal(int shift){
+
+        for(int i = 0; i < Rows-shift; i++)
+            for(int j = 0; j < Columns-shift; j++)
+                if(i == j+shift && j+shift < Rows)
+                        m_col_result[j] = m_self_matrix[i][j+shift];
+
+        return m_col_result;
+      }
+
+
+void replaceDiagonal(col_vector_t &insertVector){
+
+        for(int i = 0; i < Rows; i++)
+            for(int j = 0; j < Columns; j++)
+                if(i == j)
+                    m_self_matrix[i][j] = insertVector[j];
+                  }
+
+
+col_vector_t extractOffDiagonal(int shift){
+
+        for(int i = 0; i < Rows; i++)
+            for(int j = 0; j < Columns; j++)
+                if((i+j) == (Rows-1))
+                        m_col_result[i] = m_self_matrix[i][j];
+
+        return m_col_result;
+      }
+
+
+void replaceOffDiagonal(col_vector_t &insertVector){
+
+        for(int i = 0; i < Rows; i++)
+            for(int j = 0; j < Columns; j++)
+                if((i+j) == (Rows-1))
+                    m_self_matrix[i][j] = insertVector[j];
+                  }
+
+*/

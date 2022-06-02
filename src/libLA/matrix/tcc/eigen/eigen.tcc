@@ -9,7 +9,7 @@ col_vector_t* eig_vals(){
 
     this->QR();
 
-    matrix_t A1 = *(this->my_two_factor->right) * *(this->my_two_factor->right);
+    matrix_t A1 = *(this->my_two_factor->right) * *(this->my_two_factor->left);
     //A1.print();
     //std::cout << "\n\n\n\n\n\n";
 
@@ -31,16 +31,19 @@ col_vector_t* eig_vals(){
     //std::cout << "\n\n\n\n\n\n";
 
 
-    for(int i = 0; i < 100; i++){
+    //matrix_t temp = Ai;
+    for(int i = 0; i < 2000; i++){
     
 	 Ai.QR();
          matrix_t temp = *(Ai.my_two_factor->right) * *(Ai.my_two_factor->left);
-        // temp.print();
+         //temp.print();
          delete Ai.my_two_factor->left;
          delete Ai.my_two_factor->right;
          delete Ai.my_two_factor;
-        // std::cout << "\n\n\n\n\n\n";
-	// Ai = temp;
+         std::cout << "\n\n\n\n\n\n";
+	 Ai = temp;
+	 Ai.print();
+	 std::cout << "\n\n\n\n\n\n";
     }
 
 

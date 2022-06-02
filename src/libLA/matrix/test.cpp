@@ -95,13 +95,35 @@ int main(){
 
         std::cout << "\n\n\n\n\n";
 
-	//double test_det3 = first.Determinant();
+	cap::vector<double, 4> diag1 = first.extractDiagonal();
 
-        //first.invert();
+	diag1.print();
 
-        //std::cout << "\n\n\n\n\n";
-        //std::cout << test_det3 << std::endl;
-	//std::cout << "\n\n\n\n\n";
+	std::cout << "\n\n\n\n\n";
+
+	cap::vector<double, 4> diag2 = first.extractOffDiagonal();
+
+	diag2.print();
+
+        std::cout << "\n\n\n\n\n";
+
+        first.replaceDiagonal(diag2);
+
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	first.replaceOffDiagonal(diag1);
+
+        first.print();
+
+        std::cout << "\n\n\n\n\n";
+
+	first.replaceOffDiagonal(diag2);
+        first.replaceDiagonal(diag1);
+	first.print();
+
+	std::cout << "\n\n\n\n\n";
 
 	first.rref();
 	first.print();
@@ -291,16 +313,20 @@ int main(){
 
 	std::cout << "\n\n\n\n\n";
 
+	std::cout << " QR \n";
 	test_det2.QR();
 
+	std::cout << "\n Q \n";
 	test_det2.my_two_factor->left->print();
 	std::cout << "\n\n\n\n\n";
+        std::cout << "\n R \n";
 	test_det2.my_two_factor->right->print();
 	std::cout << "\n\n\n\n\n";
 
 
 	cap::matrix QR_Test = *(test_det2.my_two_factor->left) * *(test_det2.my_two_factor->right);
 
+	std::cout << "\n QR = A \n";
 	QR_Test.print();
 	std::cout << "\n\n\n\n\n";
 
