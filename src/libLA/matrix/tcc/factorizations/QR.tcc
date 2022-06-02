@@ -1,56 +1,57 @@
 #pragma once
 
+#define erase_debug_Givens
+#ifndef erase_debug_Givens
+#define LOG1() std::cout << "(" << p+1 << " , " << q+1 << ")" << '\n';
+#define LOG2(x) std::cout << "\n\n\n" << x << "\n\n\n";
+#define LOG3(x,y) std::cout << "\n\n\n" << x << y << "\n\n\n";
+#define LOG4(x) std::cout << "\n\n\n"; x.print(); std::cout << "\n\n\n";
+#else
+#define LOG1()
+#define LOG2(x)
+#define LOG3(x,y)
+#define LOG4(x)
+#endif
+
+#define erase_debug_Hess
+#ifndef erase_debug_Hess
+#define LOG5() std::cout << "(" << i << " , " << j << ")" << '\n';
+#else
+#define LOG5()
+#endif
+
+#define erase_debug_QR
+#ifndef erase_debug_QR
+#define LOG6() std::cout << " (" << i+1 << ',' << j+1 << ')' << '\n';
+#define LOG7(x) x.print(); std::cout << "\n\n\n\n";
+#define LOG8(x) std::cout << x << "\n\n";
+#else
+#define LOG6()
+#define LOG7(x)
+#define LOG8(x)
+#endif
+
 matrix_t Givens(int p, int q){
 
-   p--;
-   q--;
+   p--;                                                        
+   q--;                                                                     LOG1()
 
    this->Round();
 
-   if(m_self_matrix[p][q] == 0)
-      return *(this);
+   if(m_self_matrix[p][q] == 0)                                                     
+      return *(this);       
 
-   //std::cout << "(" << p+1 << " , " << q+1 << ")" << '\n';
+   numeric_type a = m_self_matrix[q][q];                                    LOG2(a)
 
-   numeric_type a = m_self_matrix[q][q];
-   //std::cout << "\n\n\n" << a << "\n\n\n";
-
-   numeric_type b = m_self_matrix[p][q];
-   //std::cout << "\n\n\n" << b << "\n\n\n";
+   numeric_type b = m_self_matrix[p][q];                                    LOG2(b)
 
    cap::vector col = cap::vector<numeric_type, 2>({a,b});
-   numeric_type r = col.magnitude();
-   //std::cout << "\n\n\n" << r << "\n\n\n";
-
-   /*
-   numeric_type c,s,t;
-   if(b == 0){
-       c = 1;
-       s = 0;
-   }
-
-   else if(std::abs(b) > std::abs(a)){
-       t = a/b;
-       s = 1.0/(std::sqrt(1.0 + std::pow(r,2)));
-       c = s*t;
-   }
-
-   else{
-   
-       t = b/a;
-       c = 1.0/(std::sqrt(1.0 + std::pow(r,2)));
-       s = c*t;
-   }*/
+   numeric_type r = col.magnitude();                                        LOG2(r)
 
 
-   
-   //std::cout << "\n\n\n" << "R = " << r << "\n\n\n";
+   numeric_type c  = a/r;                                                   LOG3("C = ",c)
 
-   numeric_type c  = a/r;
-   //std::cout << "\n\n\n" << "C = " << c << "\n\n\n";
-
-   numeric_type s  = -b/r;
-   //std::cout << "\n\n\n" << "S = " << s << "\n\n\n";
+   numeric_type s  = -b/r;                                                  LOG3("S = ", s)
    
    matrix_t G = cap::matrix<numeric_type, Rows, Columns>();
 
@@ -60,56 +61,30 @@ matrix_t Givens(int p, int q){
    G[q][q] = c;
 
    G[p][q] = s;
-   G[q][p] = -s;
-
-   //std::cout << "\n\n\n";
-   //G.print();
-   //std::cout << "\n\n\n";
+   G[q][p] = -s;                                                            LOG4(G)
 
    matrix_t temp = G;
-   temp.Transpose();
+   temp.Transpose();                                                        LOG4(temp)
 
-   //std::cout << "\n\n\n";
-   //temp.print();
-   //std::cout << "\n\n\n";
-
-
-   //temp = this->matrixMultiplication(temp);
    G = G * *(this);
 
-   //G = G * temp;
-
-  // G[p][q] = 0;
-
    m_old_givens.emplace_back(p,q);
-   
-   // for(int i = 0; i < m_old_givens.size(); i++)
-           //G[m_old_givens.at(i).first, m_old_givens.at(i).second] = 0;
-
-   //std::cout << "\n\n\n";
-   //G.print();
-   //std::cout << "\n\n\n";
-
-   
-
+  
    return G;
 
 }
 
 
 void Hessenberg(){
-    matrix_t temp = *(this);
-    //matrix_t temp = cap::matrix<numeric_type, Rows, Columns>();
-    
-    this->Round();
+    matrix_t temp = *(this);    
+    temp.Round();
 
     for(int i = 1; i <= Rows; i++)
         for(int j = 1; j <= Columns; j++)
 	    if(i > j+1){
 	        temp = this->Givens(i,j);
 		temp.Round();
-		*(this) = temp;
-		std::cout << "(" << i << " , " << j << ")" << '\n';
+		*(this) = temp;                                               LOG5()
 	      }
            }
 
@@ -144,15 +119,10 @@ void QR(){
        
        for(int j = 0; j < i; j++){
 
-	       Q.Round();
-	       R.Round();
-
-	       //std::cout << " (" << i+1 << ',' << j+1 << ')' << '\n';
-	       col_vector_t qi = Q.extractColumn(j+1);
-	       //qi.print(); std::cout << "\n\n\n\n";
-
-               const numeric_type scalar_dot = ai_orth*q1;
-	       //std::cout << scalar_dot << "\n\n";
+	       Q.Round(); R.Round();                                            LOG6()          
+	       col_vector_t qi = Q.extractColumn(j+1);                          LOG7(qi)
+               const numeric_type scalar_dot = ai_orth*q1;                      LOG8(scalar_dot)
+	       
 	       R[j][i] = scalar_dot;
                ai_orth -= {scalar_dot,q1};
               }
@@ -164,12 +134,6 @@ void QR(){
        
       }
       
-
-
-   
-
-
-
    my_two_factor->left = new matrix_t;
    my_two_factor->right = new matrix_t;
 

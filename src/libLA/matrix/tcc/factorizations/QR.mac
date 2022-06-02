@@ -1,0 +1,33 @@
+#pragma once
+
+
+#ifndef erase_debug_Givens
+#define LOG1() std::cout << "(" << p+1 << " , " << q+1 << ")" << '\n';
+#define LOG2(x) std::cout << "\n\n\n" << x << "\n\n\n";
+#define LOG3(x,y) std::cout << "\n\n\n" << x << y << "\n\n\n";
+#define LOG4(x) std::cout << "\n\n\n"; x.print(); std::cout << "\n\n\n";
+#else
+#define LOG1()
+#define LOG2(x)
+#define LOG3(x,y)
+#define LOG4(x)
+#endif
+
+
+#ifndef erase_debug_Hess
+#define LOG5() std::cout << "(" << i << " , " << j << ")" << '\n';
+#else
+#define LOG5()
+#endif
+
+
+#ifndef erase_debug_QR
+#define LOG6() std::cout << " (" << i+1 << ',' << j+1 << ')' << '\n';
+#define LOG7(x) x.print(); std::cout << "\n\n\n\n";
+#define LOG8(x) std::cout << x << "\n\n";
+#else
+#define LOG6()
+#define LOG7(x)
+#define LOG8(x)
+#endif
+
