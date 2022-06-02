@@ -342,6 +342,7 @@ int main(){
 						{5, 0,4,2}
 	                                                   };
 
+	symmetric.Hessenberg();
         symmetric.print();
 	std::cout << "\n\n\n\n\n";
 
@@ -361,21 +362,25 @@ int main(){
 	                                    {0,4,3}
 	                                           };
 
-        A_giv.print();
+        A_giv.Hessenberg();
+	
+	A_giv.print();
 	std::cout << "\n\n\n\n\n";
 
 	A_giv = A_giv.Givens(2,1);
 	A_giv.print();
         std::cout << "\n\n\n\n\n";
 
-	A_giv.Givens(3,1);
+	A_giv = A_giv.Givens(3,1);
 
 	
 	//A_giv.Hessenberg();
 
 	A_giv.print();
-	
+        std::cout << "\n\n\n\n\n";
 
+	A_giv = A_giv.Givens(3,2);
+	A_giv.print();
         std::cout << "\n\n\n\n\n";
 
 //	symmetric.Hessenberg();

@@ -5,20 +5,22 @@ matrix_t Givens(int p, int q){
    p--;
    q--;
 
+   this->Round();
+
    if(m_self_matrix[p][q] == 0)
       return *(this);
 
-   std::cout << "(" << p+1 << " , " << q+1 << ")" << '\n';
+   //std::cout << "(" << p+1 << " , " << q+1 << ")" << '\n';
 
    numeric_type a = m_self_matrix[q][q];
-   std::cout << "\n\n\n" << a << "\n\n\n";
+   //std::cout << "\n\n\n" << a << "\n\n\n";
 
    numeric_type b = m_self_matrix[p][q];
-   std::cout << "\n\n\n" << b << "\n\n\n";
+   //std::cout << "\n\n\n" << b << "\n\n\n";
 
    cap::vector col = cap::vector<numeric_type, 2>({a,b});
    numeric_type r = col.magnitude();
-   std::cout << "\n\n\n" << r << "\n\n\n";
+   //std::cout << "\n\n\n" << r << "\n\n\n";
 
    /*
    numeric_type c,s,t;
@@ -42,13 +44,13 @@ matrix_t Givens(int p, int q){
 
 
    
-   std::cout << "\n\n\n" << "R = " << r << "\n\n\n";
+   //std::cout << "\n\n\n" << "R = " << r << "\n\n\n";
 
    numeric_type c  = a/r;
-   std::cout << "\n\n\n" << "C = " << c << "\n\n\n";
+   //std::cout << "\n\n\n" << "C = " << c << "\n\n\n";
 
    numeric_type s  = -b/r;
-   std::cout << "\n\n\n" << "S = " << s << "\n\n\n";
+   //std::cout << "\n\n\n" << "S = " << s << "\n\n\n";
    
    matrix_t G = cap::matrix<numeric_type, Rows, Columns>();
 
@@ -84,9 +86,9 @@ matrix_t Givens(int p, int q){
    // for(int i = 0; i < m_old_givens.size(); i++)
            //G[m_old_givens.at(i).first, m_old_givens.at(i).second] = 0;
 
-   std::cout << "\n\n\n";
-   G.print();
-   std::cout << "\n\n\n";
+   //std::cout << "\n\n\n";
+   //G.print();
+   //std::cout << "\n\n\n";
 
    
 
@@ -96,16 +98,20 @@ matrix_t Givens(int p, int q){
 
 
 void Hessenberg(){
-    //matrix_t temp = *(this);
+    matrix_t temp = *(this);
     //matrix_t temp = cap::matrix<numeric_type, Rows, Columns>();
+    
+    this->Round();
+
     for(int i = 1; i <= Rows; i++)
         for(int j = 1; j <= Columns; j++)
 	    if(i > j+1){
-	        //*(this) = this->Givens(i,j);
-		//std::cout << "(" << i << " , " << j << ")" << '\n';
+	        temp = this->Givens(i,j);
+		temp.Round();
+		*(this) = temp;
+		std::cout << "(" << i << " , " << j << ")" << '\n';
 	      }
-   // *(this) = temp;
-  }
+           }
 
 
 
@@ -117,7 +123,8 @@ void QR(){
    //if(this->Determinant() == 0)
 	   //throw mustBeLinearlyIndependent();
 	   
-   //this->Hessenberg();
+   this->Hessenberg();
+   this->Round();
 
    my_two_factor = new twoFactor_t;
 
@@ -136,6 +143,9 @@ void QR(){
        col_vector_t ai_orth = this->extractColumn(i+1);
        
        for(int j = 0; j < i; j++){
+
+	       Q.Round();
+	       R.Round();
 
 	       //std::cout << " (" << i+1 << ',' << j+1 << ')' << '\n';
 	       col_vector_t qi = Q.extractColumn(j+1);
