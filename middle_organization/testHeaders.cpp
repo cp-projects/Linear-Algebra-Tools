@@ -50,9 +50,13 @@ int main(){
 
 	swapRows(3,2, A, aRowsSwapped);
 
-        printMatrix(A);
+        
+	std::cout << "This is the original matrix A before swapping rows 3 and 2\n";
+	
+	printMatrix(A);
 
-        printMatrix(aRowsSwapped);
+	std::cout << "This is the matrix aRowsSwapped after swapping rows 3 and 2\n";
+	printMatrix(aRowsSwapped);
 
 	
 	
@@ -60,15 +64,16 @@ int main(){
 
         extractColumn(1, A, rowVector);
 
-	//for(int i = 0; i < 3; i++) std::cout << rowVector[i] << ' ';
-	//std::cout << '\n';
+	std::cout << "extracted col 1 form the matrix A (as a row vector form I guess? not sure why I called it rowvector tbh) and attempt to print below\n";
+	for(int i = 0; i < 3; i++) std::cout << rowVector[i] << ' ';
+	std::cout << '\n';
 
 	double test[2][2] = {
 		              {1,2},
 	                      {3,4}
 	                           };
 	
-	printMatrix(test);
+	//printMatrix(test);
 	
         //std::cout << det2by2(test) << '\n';
 	
@@ -88,7 +93,9 @@ int main(){
 			        {2,4,5,4}	
 				    };
 	
+        
 
+	//for some reason this is testing my determinant function on result all the way back at the top, idk man
 
 
 	std::cout << determinant(result) << '\n';
