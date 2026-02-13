@@ -68,14 +68,17 @@ int main(){
 	for(int i = 0; i < 3; i++) std::cout << rowVector[i] << ' ';
 	std::cout << '\n';
 
+	std::cout << "\n\n";
+
 	double test[2][2] = {
 		              {1,2},
 	                      {3,4}
 	                           };
+	std::cout << "new test matrix to test the faster 2x2 matrix determinant method\n";
+	printMatrix(test);
 	
-	//printMatrix(test);
-	
-        //std::cout << det2by2(test) << '\n';
+	std::cout << "deterimant of the test matrix is: \n";
+        std::cout << det2by2(test) << '\n';
 	
 	
 	double letters[3][3] = {

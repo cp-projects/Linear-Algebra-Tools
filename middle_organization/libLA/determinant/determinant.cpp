@@ -1,6 +1,8 @@
 #include "determinant.hpp"
 
-double determinant(double matrix2x2[2][2]){
+double det2by2(double matrix2x2[2][2]){
+
+//double determinant(double matrix2x2[2][2]){
         double result =  (matrix2x2[0][0] * matrix2x2[1][1]) - (matrix2x2[0][1] * matrix2x2[1][0]);
 	return result;
 }
@@ -32,7 +34,8 @@ double determinant(double (&matrix)[R][C])
                  twoColumn = 1;
                } //end loop
             }//end loop
-        double det = determinant(two);
+        //double det = determinanti(two);
+	double det = det2by2(two);
         if(v % 2) 
 		oddVflag = true;
         if(oddVflag == false)
