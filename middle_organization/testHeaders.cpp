@@ -101,7 +101,7 @@ int main(){
 	//for some reason this is testing my determinant function on result all the way back at the top, idk man
 
 
-	std::cout << determinant(result) << '\n';
+	std::cout << determinant(testTwo) << '\n';
 
 
 	double testVector[4];

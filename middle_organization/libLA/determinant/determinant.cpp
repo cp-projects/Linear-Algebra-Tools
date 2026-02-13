@@ -1,8 +1,6 @@
 #include "determinant.hpp"
 
 double det2by2(double matrix2x2[2][2]){
-
-//double determinant(double matrix2x2[2][2]){
         double result =  (matrix2x2[0][0] * matrix2x2[1][1]) - (matrix2x2[0][1] * matrix2x2[1][0]);
 	return result;
 }
@@ -14,7 +12,7 @@ double determinant(double (&matrix)[R][C])
 
     double finResult;
     double two[2][2];
-    bool firstFlag = true;
+    //bool firstFlag = true;
     for(int v = 0; v < 3; v++){
         bool oddVflag = false;
         for(int i = 0; i < R; i++){
