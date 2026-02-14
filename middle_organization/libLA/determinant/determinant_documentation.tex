@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Determinant Formulas}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{2x2 Determinant}
+
+For a $2 \times 2$ matrix:
+
+\[
+A =
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\]
+
+The determinant is:
+
+\[
+\det(A) = ad - bc
+\]
+
+\section{Recursive Definition}
+
+For an $N \times N$ matrix $A$:
+
+\[
+\det(A) =
+\sum_{j=0}^{N-1}
+(-1)^j a_{0j} \det(M_{0j})
+\]
+
+where $M_{0j}$ is the minor formed by removing row $0$ and column $j$.
+
+\end{document}
+
