@@ -74,12 +74,13 @@ int main(){
 		              {1,2},
 	                      {3,4}
 	                           };
-	std::cout << "new test matrix to test the faster 2x2 matrix determinant method\n";
+	std::cout << "new test matrix:\n";
 	printMatrix(test);
 	
 	std::cout << "deterimant of the test matrix is: \n";
-        std::cout << det2by2(test) << '\n';
-	
+        //std::cout << det2by2(test) << '\n';
+	std::cout << determinant(test) << '\n';
+	//Now, I could use the old det2x2(test) method, but why it is pointless and probably shouldn't exist
 	
 	double letters[3][3] = {
                          {'a', 'b', 'c'},
@@ -99,8 +100,15 @@ int main(){
         
 
 	//for some reason this is testing my determinant function on result all the way back at the top, idk man
+	//Me again later, it turned out I was avoiding the fact that my determinant function only worked for 3x3 matricies,
+	//so when I put in the testTwo function, which is 4x4, it crashed, and rather than rewriting the function (which I just did)
+	//I just switched to the 3x3 matrix so it would compile, very bad practice unless I noted very clearly that this was something
+	//to fix immediately after fixing somethinmg else, and even then, probably should have just commented it out.
 
-
+ 
+	std::cout << "the testTwo matrix is below:\n";
+	printMatrix(testTwo);
+	std::cout << "and it's determinant is: \n";
 	std::cout << determinant(testTwo) << '\n';
 
 
@@ -109,31 +117,36 @@ int main(){
 
         std::cout << '\n';
 	extractRow(1, testTwo, testVector);
-	
-        printVector(testVector);
 
+        std::cout << "This is testVector = 1st row vector of testTwo extracted by extractRow function";	
+        printVector(testVector);
 	
 	std::cout << '\n';
 	extractColumn(1, testTwo, testVectorTwo);
 
+	std::cout << "This is testVectorTwo = 1st column vector of testTwo extracted by extractColumn function";
 	printVector(testVectorTwo);
 
         //going to come back to this, ideally shouldn't need to process the size of the array before calling dot method
+	//adding to this comment much later, I think what I was saying is that (ideally) I can perhaps build the size calculation into the dot function
+	//but I'm not sure even this is possible, obviously we need to know the size of the the arrays we're talking about so it needs to be defined somewhere
+	//I think most realistic is once I rewrite/reconsider as a "vector" object/class rather than raw arrays, failing that, if possible, inside the function
+	//failing this as is
 	int size = sizeof(testVector)/sizeof(testVector[0]);	
 	double dotProduct = dot(testVector, testVectorTwo, size);
 	
-	std::cout << '\n' << '\n' << dotProduct << '\n';
+
+	std::cout << '\n' << "The dot product of testVector and testVectorTwo is: " << '\n' << dotProduct << '\n';
 
 	std::cout << '\n';
 
 	scale(testVector, size, 2);
 
+	std::cout << "this is testVector scaled by 2 (note, this changes original testVector, doesn't create a new scaled vector)";
 	printVector(testVector);
 
-	std::cout << '\n';
-
+	std::cout << '\n' << "This is the (newly scaled) testVector - testVectorTwo, not that this will also overwrite the value of the testVector variable";
 	subtractVectors(testVector, testVectorTwo, size);
-
 	printVector(testVector);
 
 	std::cout << '\n' << '\n';
@@ -141,15 +154,22 @@ int main(){
 	double transform[4];
 	matrixVectorMultiplication(identity, testVectorTwo, transform);
 
-        printVector(transform);
+	std::cout << "This is the result of the identity times testVectorTwo";
+	printVector(transform);
 
         std::cout << '\n' << '\n' << '\n';
-	
+
+        std::cout << "reminder of testTwo matrix";
 	printMatrix(testTwo);
 
-        double gaussOutput[4][4];
+	matrixVectorMultiplication(testTwo, testVectorTwo, transform);
+	std::cout << "This is the result of testVectorTwo times testTwo matrix";
+	printVector(transform);
 
-	gauss(testTwo, gaussOutput);	
+        double gaussOutput[4][4];
+        gauss(testTwo, gaussOutput);
+	std::cout << "This is the result of Gaussian elimination on testTwo matrix";
+        printMatrix(gaussOutput);
 
 	
        	//std::cout << '\n' << '\n' << absolute(-7.5) <<'\n';
