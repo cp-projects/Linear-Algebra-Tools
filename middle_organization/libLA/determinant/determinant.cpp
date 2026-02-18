@@ -9,50 +9,57 @@ double det2by2(double matrix2x2[2][2]){
 }
 
 
+
+//creates a new unsigned M which we can reference seperately
 template<unsigned M>
+//makeMinor takes an original matrix, a reference to allocated space for a minor and a column to ignore when constructing the minor
 void makeMinor(double (&ogMatrix)[M][M], double (&minor)[M-1][M-1], int ignoreCol){
 
-	//std::cout << ignoreCol << "hello" << '\n';
+        //we have to index the minor cols and rows seperately
 	int minorRow = 0;
+	//i is the rows of the original matrix
 	for(int i = 0; i<M; i++){
+	    //if the top row, skip to next interation of the loop
 	    if(i == 0)
 		continue;
 
 	    int minorCol = 0;
 	    for(int j = 0; j<M; j++){
+		//skip the column we want to ignore
 	        if (j != ignoreCol){
-		    //std::cout << ogMatrix[i][j] << "   ";
+		    //adds the original matrix values of the minor we care about to the seperate minor indexes
 		    minor[minorRow][minorCol] = ogMatrix[i][j];
 		    minorCol++;
 		}
-	    } 
+	    }
+	//make sure this is in the i but not j loop 
 	minorRow++;
 	}
 }
 
 
+//only 1 dimesion because you need a square matrix for the determinant to be useful
 template<unsigned N>
 double determinant(double (&matrix)[N][N]){
 
+	//base case to break recursion when we hit a 2x2 matrix
 	if constexpr (N == 2){
 		return (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]);
         	}
 
+	//won't compule without else even if it can never be hit due to return
 	else{
 	    double det = 0;
 	    for(int j = 0; j < N; j++){
-	
-	       //std::cout << pow(-1,j) * matrix[0][j] << "print\n";
 
+	       //define minor and call the function to fill the allocated memory (warning, for big enough matricies we might not be able to allocate on the stack like this)
 	       double minor[N-1][N-1];
 	       makeMinor(matrix,minor, j);
-	       //printMatrix(minor);
 
 	       //if j mod 2 is 0 return 1 else return -1, same as saying (-1)^j because it checks even vs odd
 	       double sign = (j % 2 == 0 ? 1 : -1);
-	       //std::cout << sign * matrix[0][j];
-	       //printMatrix(minor);
 
+               //Check documentation for math function
 	       det += sign * matrix[0][j] * determinant(minor);
 	    }
 	return det;
@@ -61,43 +68,7 @@ double determinant(double (&matrix)[N][N]){
 }
 
 
-//template<unsigned R, unsigned C>
-//double determinant(double (&matrix)[R][C])
-//{       
 
- //   double finResult;
-   // double two[2][2];
-    //bool firstFlag = true;
-   // for(int v = 0; v < 3; v++){
-      //  bool oddVflag = false;
- //       for(int i = 0; i < R; i++){
- //           bool twoColumn = 0;
- //           for(int j = 0; j < C; j++){
- //               if(i != 0 && j != v){
- //                   if(firstFlag == true){
- //                           two[i-1][0] = matrix[i][j];
- //                           two[i][0] = matrix[i+1][j];
- //                    }
- //                   else{
- //                           two[i-1][twoColumn] = matrix[i][j];
- //                           firstFlag = false;
- //                        }
- //                   firstFlag = false;
- //                }
- //                twoColumn = 1;
-//               } //end loop
-//            }//end loop
-        //double det = determinanti(two);
-//	double det = det2by2(two);
-//        if(v % 2) 
-//		oddVflag = true;
-//        if(oddVflag == false)
-//           finResult += matrix[0][v]  *  det;
- //       else
- //          finResult -= matrix[0][v] * det;
-//    }//end loop
-//    return finResult;
-//}
 
 
 
