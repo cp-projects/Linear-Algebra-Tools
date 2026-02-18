@@ -1,4 +1,5 @@
 #include "determinant.hpp"
+#include "../printLA/printLA.hpp"
 
 
 //frankly there is probably no reason for this to exist, do not use.
@@ -8,14 +9,26 @@ double det2by2(double matrix2x2[2][2]){
 }
 
 
-//template<unsigned M>
-//void makeMinor(double (&ogMatrix)[M][M], (&minor)[M-1][M-1]){
-		
-	//	printMatrix(ogMatrix);
-	//	printMatrix(minor);
+template<unsigned M>
+void makeMinor(double (&ogMatrix)[M][M], double (&minor)[M-1][M-1], int ignoreCol){
 
+	//std::cout << ignoreCol << "hello" << '\n';
+	int minorRow = 0;
+	for(int i = 0; i<M; i++){
+	    if(i == 0)
+		continue;
 
-//		}
+	    int minorCol = 0;
+	    for(int j = 0; j<M; j++){
+	        if (j != ignoreCol){
+		    //std::cout << ogMatrix[i][j] << "   ";
+		    minor[minorRow][minorCol] = ogMatrix[i][j];
+		    minorCol++;
+		}
+	    } 
+	minorRow++;
+	}
+}
 
 
 template<unsigned N>
@@ -25,12 +38,25 @@ double determinant(double (&matrix)[N][N]){
 		return (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]);
         	}
 
-	for(int j = 0; j < N; j++){
+	else{
+	    double det = 0;
+	    for(int j = 0; j < N; j++){
 	
-	   std::cout << pow(-1,j) * matrix[0][j] << "print\n";
+	       //std::cout << pow(-1,j) * matrix[0][j] << "print\n";
 
+	       double minor[N-1][N-1];
+	       makeMinor(matrix,minor, j);
+	       //printMatrix(minor);
+
+	       //if j mod 2 is 0 return 1 else return -1, same as saying (-1)^j because it checks even vs odd
+	       double sign = (j % 2 == 0 ? 1 : -1);
+	       //std::cout << sign * matrix[0][j];
+	       //printMatrix(minor);
+
+	       det += sign * matrix[0][j] * determinant(minor);
+	    }
+	return det;
 	}
-   return 67;
 
 }
 

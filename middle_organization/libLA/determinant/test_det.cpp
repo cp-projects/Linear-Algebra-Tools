@@ -41,6 +41,10 @@ double test2[4][4] = {{1, 0, 54, 11.1},
                      {3.4, 2.7, 5.5, 8.13},
 		     {1, -24, -3.7, 0.001}};
 
+
+std::cout << "The matrix test2 is: ";
+printMatrix(test2);
+std::cout << "and its determinant is: \n";
 double TV2 = determinant(test2);
 
 std::cout << TV2 << '\n';
