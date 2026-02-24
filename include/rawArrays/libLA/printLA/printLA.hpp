@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef __printLA_H_
 #define __printLA_H_
 
