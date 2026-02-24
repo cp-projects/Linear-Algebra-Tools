@@ -22,7 +22,7 @@ while(rowPivot < R && columnPivot < C)
 	//should be absolute    
 	double abs =  input[rowPivot][columnPivot];
 
-	//std::cout << abs << ' ';
+	std::cout << abs << ' ';
 
         if(abs > maxAbsolute)
 

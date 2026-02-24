@@ -1,6 +1,10 @@
 #include "libLA.hpp"
 
-int main(){	
+int main(){
+
+
+        //Checks C++ Version we are actually using, that g++ compiles with naturally without a fla
+        std::cout << __cplusplus << std::endl;
 
 	double identity[4][4];
 
@@ -111,14 +115,25 @@ int main(){
 	std::cout << "and it's determinant is: \n";
 	std::cout << determinant(testTwo) << '\n';
 
+	double test3[4][4] = {{1, 0, 54, 11.1},
+                     {24, 2, -7, 99},
+                     {3.4, 2.7, 5.5, 8.13},
+                     {1, -24, -3.7, 0.001}};
+
+
+         std::cout << "\n The matrix test3 is: ";
+         printMatrix(test3);
+         std::cout << "and its determinant is: \n";
+         double TV3 = determinant(test3);
+         std::cout << TV3 << '\n';
 
 	double testVector[4];
 	double testVectorTwo[4];
 
         std::cout << '\n';
-	extractRow(1, testTwo, testVector);
+	extractRow(1, test3, testVector);
 
-        std::cout << "This is testVector = 1st row vector of testTwo extracted by extractRow function";	
+        std::cout << "This is testVector = 1st row vector of test3 extracted by extractRow function";	
         printVector(testVector);
 	
 	std::cout << '\n';

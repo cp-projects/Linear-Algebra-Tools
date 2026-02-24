@@ -1,5 +1,7 @@
 #include "determinant.hpp"
-#include "../printLA/printLA.hpp"
+
+//Uncomment for debugging
+//#include "../printLA/printLA.hpp"
 
 
 //frankly there is probably no reason for this to exist, do not use.

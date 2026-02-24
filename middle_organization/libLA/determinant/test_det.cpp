@@ -46,7 +46,6 @@ std::cout << "The matrix test2 is: ";
 printMatrix(test2);
 std::cout << "and its determinant is: \n";
 double TV2 = determinant(test2);
-
 std::cout << TV2 << '\n';
 
 
