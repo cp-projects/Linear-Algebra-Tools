@@ -3,12 +3,6 @@
 #ifndef __printLA_H_
 #define __printLA_H_
 
-template<int R, int C>
-void printMatrix(double(&matrix)[R][C]);
-
-
-template<int R>
-void printVector(double (&vector)[R]);
 
 #include <iostream>
 
@@ -21,7 +15,7 @@ void printVector(double (&vector)[R]);
  * */
 
 template<int R, int C>
-void printMatrix(double(&matrix)[R][C])
+void printMatrix(const double(&matrix)[R][C])
 {
 
         std::cout << '\n';
@@ -44,7 +38,7 @@ void printMatrix(double(&matrix)[R][C])
  *
  * */
 template<int R>
-void printVector(double (&vector)[R]){
+void printVector(const double (&vector)[R]){
 
     std::cout << '\n';
     
