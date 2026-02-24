@@ -187,7 +187,7 @@ int main(){
         printMatrix(gaussOutput);
 
 	
-       	//std::cout << '\n' << '\n' << absolute(-7.5) <<'\n';
+       	std::cout << '\n' << '\n' << absolute(-7.5) <<'\n';
 
 
 	double crossResVector[3];

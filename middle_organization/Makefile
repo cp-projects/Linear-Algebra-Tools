@@ -1,4 +1,4 @@
-testHeaders.out: testHeaders.o
+testHeaders.out: testHeaders.o 
 	g++ -o testHeaders.out testHeaders.o
 
 testHeaders.o: testHeaders.cpp libLA.hpp
