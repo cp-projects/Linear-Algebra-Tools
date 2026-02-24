@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Determinant Formulas}
+
+\begin{document}
+
+\maketitle
+
+\section{2x2 Determinant}
+
+For a $2 \times 2$ matrix:
+
+\[
+A =
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\]
+
+The determinant is:
+
+\[
+\det(A) = ad - bc
+\]
+
+This is standard and implimented directly in the det2by2 funtion.
+
+
+\section{Recursive Definition}
+
+Standard for math but terrible computational efficiency, when I tried to implement it before I accidentally assumed 3x3 matrix, so going to fix it recoursively.
+
+For an $N \times N$ matrix $A$:
+
+\[
+\det(A) =
+\sum_{j=0}^{N-1}
+(-1)^j a_{0j} \det(M_{0j})
+\]
+
+where $M_{0j}$ is the minor formed by removing row $0$ and column $j$.
+
+\end{document}
+
