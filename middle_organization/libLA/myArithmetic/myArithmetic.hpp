@@ -1,15 +1,6 @@
-//#pragma once
+#pragma once
 
-#ifndef myArithmetic_H_
-#define myAtithmetic_H_
-
-
-int absolute(int x);
-
-double absolute(double x);
-
-float absolute(float x);
-
-
-
-#endif
+template< typename T>
+inline constexpr T absolute(T x){
+    return x < 0 ? -x : x;
+}
