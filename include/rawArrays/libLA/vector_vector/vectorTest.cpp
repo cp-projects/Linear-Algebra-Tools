@@ -43,6 +43,12 @@ int main(){
     subtractScaled(vec1, vec2, 5, 2);
     printVector(vec1);
 
+    double cross_result[3];
+    double vec3[3] = {1,2,3};
+    double vec4[3] = {4,5,6};
+    cross(vec3,vec4, cross_result);
+    printVector(cross_result);
+
 	
 
 return 0;

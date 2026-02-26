@@ -55,7 +55,7 @@ void cross( double (&vectorOne)[3], double (&vectorTwo)[3], double (&output)[3])
                         matrix[0][1] = vectorOne[2];
                         matrix[1][0] = vectorTwo[1];
                         matrix[1][1] = vectorTwo[2];
-                        output[0] = det2by2(matrix);
+                        output[0] = determinant(matrix);
                         break;
 
                 case 1:
@@ -63,7 +63,7 @@ void cross( double (&vectorOne)[3], double (&vectorTwo)[3], double (&output)[3])
                         matrix[0][1] = vectorOne[2];
                         matrix[1][0] = vectorTwo[0];
                         matrix[1][1] = vectorTwo[2];
-                        output[1] = -det2by2(matrix);
+                        output[1] = -determinant(matrix);
                         break;
 
                 case 2:
@@ -71,7 +71,7 @@ void cross( double (&vectorOne)[3], double (&vectorTwo)[3], double (&output)[3])
                         matrix[0][1] = vectorOne[1];
                         matrix[1][0] = vectorTwo[0];
                         matrix[1][1] = vectorTwo[1];
-                        output[2] = det2by2(matrix);
+                        output[2] = determinant(matrix);
                         break;
                                                        };
 
