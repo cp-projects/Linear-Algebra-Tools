@@ -7,10 +7,6 @@ int main(){
 double test[2][2] = {{1, 0},
                      {24, 2}};
 
-double testVal = det2by2(test);
-
-//std::cout << testVal << '\n';
-
 std::cout << "the matrix test is: ";
 
 printMatrix(test);
