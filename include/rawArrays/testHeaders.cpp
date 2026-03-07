@@ -35,6 +35,9 @@ int main(){
 
 
 	double result[3][3];
+         //	             = {{0,0,0},
+	//	               {0,0,0},
+	//		       {0,0,0}};
 
 	matrixMultiplication(input, output, result);
 

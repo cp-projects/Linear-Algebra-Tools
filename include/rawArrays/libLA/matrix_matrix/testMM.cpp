@@ -127,9 +127,9 @@ void add_test(){
 
 int main(){
 
-//old_mult_test();
+old_mult_test();
 
-add_test();
+//add_test();
 
 return 0;
 }
