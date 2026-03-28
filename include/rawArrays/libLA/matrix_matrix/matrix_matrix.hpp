@@ -12,8 +12,10 @@ void matrixMultiplication(double (&matrixOne)[N][N], double (&matrixTwo)[N][N], 
     //printf("matrixMultiplication nxn\n");
 
     //add documentation later that we need to not overwrite itself
+    #ifndef NDEBUG
     assert(&result != &matrixOne);
     assert(&result != &matrixTwo);
+    #endif
 
     std::cout << "Using SAME SIZE version\n";
 
@@ -39,8 +41,10 @@ void matrixMultiplication(double (&matrixOne)[N][N], double (&matrixTwo)[N][N], 
 template<int M, int N, int P>
 void matrixMultiplication(double (&matrixOne)[M][N], double (&matrixTwo)[N][P], double (&result)[M][P]){
 
-   assert(&result != &matrixOne);
-   assert(&result != &matrixTwo);
+   //The problem with this is two fold, you can't compare two different types like this and also, even if we (void*) cast them so that
+   //we could compare, we would only be asking if the pointers are the same, if they start at the literal same memory adress
+   //assert(&result != &matrixOne);
+   //assert(&result != &matrixTwo);
 
    std::cout << "Using Different version\n";
 

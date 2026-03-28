@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __LaHeaders_H_
 #define __LaHeaders_H_
 
