@@ -9,7 +9,7 @@ generateRandom(test);
 std::cout << "I randomly generated a matrix called test, it is printed below: " << std::endl;
 printMatrix(test);
 
-double gaussOutput[4][4];
+double gaussOutput[4][4];// = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 gauss(test,gaussOutput);
 printMatrix(gaussOutput);
 
