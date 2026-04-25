@@ -13,6 +13,6 @@
 
 #include "libLA/matrix_vector/matrix_vector.hpp"
 #include "libLA/determinant/determinant.hpp"
-#include "libLA/elemination/gaussian.hpp"
+#include "libLA/elimination/gaussian.hpp"
 
 #endif
